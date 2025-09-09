@@ -13,4 +13,9 @@
 
         public Producto() { }
     }
+
+    public static string GetAllProductos()
+    {
+        return string.Format("SELECT * FROM productos");
+    }
 }
