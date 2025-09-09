@@ -18,4 +18,9 @@
     {
         return string.Format("SELECT * FROM productos");
     }
+
+    public static string GetProductoById(int id)
+    {
+        return string.Format("SELECT * FROM producto where producto_id ="id);
+    }
 }
