@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "9e3BD5CUDpQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hilet.HILET\\Downloads\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\E-commerce.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hilet.HILET\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
+    "C:\\Users\\hilet.HILET\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\hilet.HILET\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\Users\\hilet.HILET\\.nuget\\packages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
+    "C:\\Users\\hilet.HILET\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
+    "C:\\Users\\hilet.HILET\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
+    "C:\\Users\\hilet.HILET\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.6.2\\swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
+    "C:\\Users\\hilet.HILET\\.nuget\\packages\\system.data.odbc\\8.0.1\\system.data.odbc.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
