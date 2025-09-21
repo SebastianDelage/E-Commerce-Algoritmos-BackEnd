@@ -24,5 +24,20 @@ namespace E_commerce.Endpoints.Productos
 
             return new DataResponse<IEnumerable<Producto>>(true,200,"Resultado",data:result);
         }
-    }
+
+        [HttpGet]
+        [Route("getById/{id_producto}")]
+        public async Task<BaseResponse> GetById(int id_producto)
+        {
+            var query = Producto.GetProductoById(id_producto);
+            var result = await _personaRepository.GetByIdAsync(query);
+            if (result != null)
+            {
+                return new DataResponse<Producto>(true, 200, "Producto encontrado", data: result);
+            }
+            else
+            {
+                return new BaseResponse(false, 404, "Producto no encontrado");
+            }
+        }
 }

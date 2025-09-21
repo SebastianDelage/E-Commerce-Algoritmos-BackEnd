@@ -3,7 +3,6 @@ using E_commerce.Repository.Models;
 using System.Net;
 using Microsoft.AspNetCore.Identity;
 using E_commerce.Responses;
-using E
 
 namespace E_commerce.Endpoints.Categoria.Handlers
 
