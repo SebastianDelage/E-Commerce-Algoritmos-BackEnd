@@ -41,9 +41,9 @@ namespace E_commerce.Repository.Models
 
         }
 
-        public static string CreateOneProducto()
+        public static string CreateProducto(string nombre, string descripcion, float precio, int categoria_id, int marca_id, int genero_id, string imagenURL)
         {
-            return string.Format("INSERT INTO producto ({0},{1},{2},{3},{4},{5},{6})");
+            return string.Format($"INSERT INTO productos (nombre, descripcion, precio, categoria_id, marca_id, genero_id, imagen_url) VALUES ('{nombre}', '{descripcion}', {precio}, {categoria_id}, {marca_id}, {genero_id}, '{imagenURL}')");
         }
     }
 }
