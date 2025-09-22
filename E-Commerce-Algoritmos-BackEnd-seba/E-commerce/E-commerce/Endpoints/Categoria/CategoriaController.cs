@@ -10,7 +10,7 @@ namespace E_commerce.Endpoints.Categoria
     public class CategoriaController : ControllerBase
     {
       private readonly IRepository<Categorias> _categoriaRepository;
-        public CategoriaController(IRepository<Categorias categoriaRepository)
+        public CategoriaController(IRepository<Categorias> categoriaRepository)
         {
             _categoriaRepository = categoriaRepository;
         }
@@ -20,7 +20,7 @@ namespace E_commerce.Endpoints.Categoria
         {
             var query = Categorias.GetAllCategorias();
             var result = await _categoriaRepository.GetAllAsync(query);
-            return new DataResponse<IEnumerable<Categoria>>(true,200,"Resultado",data:result);
+            return new DataResponse<IEnumerable<Categorias>>(true,200,"Resultado",data:result);
         }
 
         [HttpGet]

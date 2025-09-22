@@ -8,6 +8,17 @@
         public int Estado {  get; set; }
         public decimal Total {  get; set; }
 
+        public Orden() { }
+
+        public Orden(int ordenId, int usuarioId, DateTime fechaOrden, int estado, decimal total)
+        {
+            OrdenId = ordenId;
+            UsuarioId = usuarioId;
+            FechaOrden = fechaOrden;
+            Estado = estado;
+            Total = total;
+        }
+
         public static string GetAllOrdenes()
         {
             return string.Format("SELECT * FROM ordenes");

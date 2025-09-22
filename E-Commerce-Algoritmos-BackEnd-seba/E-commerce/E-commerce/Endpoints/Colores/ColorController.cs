@@ -8,7 +8,7 @@ namespace E_commerce.Endpoints.Colores
     public class ColorController : ControllerBase
     {
         private readonly IRepository<Color> _colorRepository;
-        public TestController(IRepository<Colores> colorRepository)
+        public ColorController(IRepository<Color> colorRepository)
         {
             _colorRepository = colorRepository;
         }
@@ -16,20 +16,20 @@ namespace E_commerce.Endpoints.Colores
         [Route("getAll")]
         public async Task<BaseResponse> GetAll()
         {
-            var query = Colores.GetAllColores();
+            var query = Color.GetAllColores();
             var result = await _colorRepository.GetAllAsync(query);
-            return new DataResponse<IEnumerable<Colores>>(true, 200, "Resultado", data: result);
+            return new DataResponse<IEnumerable<Color>>(true, 200, "Resultado", data: result);
         }
 
         [HttpGet]
         [Route("getById/{id_color}")]
         public async Task<BaseResponse> GetById(int id_color)
         {
-            var query = Colores.GetColorById(id_color);
+            var query = Color.GetColorById(id_color);
             var result = await _colorRepository.GetByIdAsync(query);
             if (result != null)
             {
-                return new DataResponse<Colores>(true, 200, "Color encontrado", data: result);
+                return new DataResponse<Color>(true, 200, "Color encontrado", data: result);
             }
             else
             {

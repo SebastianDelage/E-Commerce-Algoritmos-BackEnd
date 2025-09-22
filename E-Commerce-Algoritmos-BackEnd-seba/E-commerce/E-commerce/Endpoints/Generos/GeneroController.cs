@@ -7,8 +7,8 @@ namespace E_commerce.Endpoints.Genero
 {
     public class GeneroController : ControllerBase
     {
-        private readonly IRepository<Generos> _generoRepository;
-        public GeneroController(IRepository<Generos> generoRepository)
+        private readonly IRepository<Repository.Models.Genero> _generoRepository;
+        public GeneroController(IRepository<Repository.Models.Genero> generoRepository)
         {
             _generoRepository = generoRepository;
         }
@@ -29,7 +29,7 @@ namespace E_commerce.Endpoints.Genero
             var result = await _generoRepository.GetByIdAsync(query);
             if (result != null)
             {
-                return new DataResponse<Generos>(true, 200, "Genero encontrado", data: result);
+                return new DataResponse<Repository.Models.Genero>(true, 200, "Genero encontrado", data: result);
             }
             else
             {

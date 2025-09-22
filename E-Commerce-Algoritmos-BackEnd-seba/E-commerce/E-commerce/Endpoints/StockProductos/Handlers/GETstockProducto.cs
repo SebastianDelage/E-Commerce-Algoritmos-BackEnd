@@ -15,7 +15,7 @@ namespace E_commerce.Endpoints.StockProductos.Handlers
 
         static public BaseResponse GetStockProductoById(List<StockProducto> stockProductos, int id_stockProducto)
         {
-            StockProducto? tmp = stockProductos.FirstOrDefault(x => x.StockProductoId == id_stockProducto);
+            StockProducto? tmp = stockProductos.FirstOrDefault(x => x.StockId == id_stockProducto);
             if (tmp != null)
             {
                 return new DataResponse<StockProducto>(true, (int)HttpStatusCode.OK, "StockProducto encontrado", data: tmp);

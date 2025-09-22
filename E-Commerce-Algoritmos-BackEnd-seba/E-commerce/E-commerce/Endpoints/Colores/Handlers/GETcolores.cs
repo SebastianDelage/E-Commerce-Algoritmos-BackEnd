@@ -7,17 +7,17 @@ namespace E_commerce.Endpoints.Colores.Handlers
 {
     public class GETcolores
 {
-    public static BaseResponse GetAllColores(List<Colores> colors)
+    public static BaseResponse GetAllColores(List<Color> colors)
     {
-        return new DataResponse<List<Colores>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: colors);
+        return new DataResponse<List<Color>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: colors);
     }
 
-    public static BaseResponse GetColorById(List<Colores> colors, int id_color)
+    public static BaseResponse GetColorById(List<Color> colors, int id_color)
     {
-        Colores? tmp = colors.FirstOrDefault(x => x.ColorId == id_color);
+        Color? tmp = colors.FirstOrDefault(x => x.ColorId == id_color);
         if (tmp != null)
         {
-            return new DataResponse<Colores>(true, (int)HttpStatusCode.OK, "Color encontrado", data: tmp);
+            return new DataResponse<Color>(true, (int)HttpStatusCode.OK, "Color encontrado", data: tmp);
         }
         else
         {

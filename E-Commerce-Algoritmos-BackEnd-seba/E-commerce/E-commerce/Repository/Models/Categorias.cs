@@ -6,6 +6,14 @@
         public string Nombre { get; set; }
 
 
+        public Categorias() { }
+
+        public Categorias(int categoriaId, string nombre)
+        {
+            CategoriaId = categoriaId;
+            Nombre = nombre;
+        }
+
         public static string GetAllCategorias()
         {
             return string.Format("SELECT * FROM categorias");

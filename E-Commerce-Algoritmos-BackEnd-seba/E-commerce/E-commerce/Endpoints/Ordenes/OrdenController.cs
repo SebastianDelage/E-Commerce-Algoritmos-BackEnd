@@ -17,22 +17,22 @@ namespace E_commerce.Endpoints.Ordenes
 		public async Task<BaseResponse> GetAll()
 		{
 			var query = Orden.GetAllOrdenes();
-			var result = await _ordenrRepository.GetAllAsync(query);
-			return new DataResponse<IEnumerable<Color>>(true, 200, "Resultado", data: result);
+			var result = await _ordenRepository.GetAllAsync(query);
+			return new DataResponse<IEnumerable<Orden>>(true, 200, "Resultado", data: result);
 		}
 		[HttpGet]
-		[Route("getById/{id_color}")]
+		[Route("getById/{id_orden}")]
 		public async Task<BaseResponse> GetById(int id_color)
 		{
 			var query = Orden.GetOrdenById(id_color);
 			var result = await _ordenRepository.GetByIdAsync(query);
 			if (result != null)
 			{
-				return new DataResponse<Orden>(true, 200, "Color encontrado", data: result);
+				return new DataResponse<Orden>(true, 200, "Orden encontrada", data: result);
 			}
 			else
 			{
-				return new BaseResponse(false, 404, "Color no encontrado");
+				return new BaseResponse(false, 404, "Orden no encontrada");
 			}
 		}
 	}

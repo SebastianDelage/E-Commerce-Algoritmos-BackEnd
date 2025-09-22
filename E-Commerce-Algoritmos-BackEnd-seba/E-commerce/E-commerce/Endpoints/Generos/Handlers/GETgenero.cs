@@ -3,7 +3,7 @@ using E_commerce.Repository.Models;
 using System.Net;
 using Microsoft.AspNetCore.Identity;
 
-namespace E_commerce.Endpoints.Genero.Handlers
+namespace E_commerce.Endpoints.Generos.Handlers
 {
     public class GETgenero
     {
@@ -12,7 +12,7 @@ namespace E_commerce.Endpoints.Genero.Handlers
             return new DataResponse<List<Genero>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: generos);
         }
 
-        public static BaseResponse GetGeneroById(List<Genero generos), int id_genero)
+        public static BaseResponse GetGeneroById(List<Genero> generos, int id_genero)
         {
             Genero? tmp = generos.FirstOrDefault(x => x.GeneroId == id_genero);
             if (tmp != null)
@@ -22,7 +22,7 @@ namespace E_commerce.Endpoints.Genero.Handlers
             else
             {
                 return new BaseResponse(false, (int)HttpStatusCode.NotFound, "Genero no encontrado");
-}
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ using E_commerce.Repository.Models;
 using System.Net;
 using Microsoft.AspNetCore.Identity;
 
-namespace E_commerce.Endpoints.StockProductos.Handlers
+namespace E_commerce.Endpoints.Usuarios.Handlers
 {
     public class GETusuairio
     {

@@ -1,16 +1,16 @@
-﻿using E_commerce.E_commerce.Responses;
+﻿using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using System.Net;
 using Microsoft.AspNetCore.Identity;
 using E_commerce.Responses;
 
-namespace E_commerce.Endpoints.Categoria.Handlers
+namespace E_commerce.Endpoints.Categoria.Handlers;
 
 public class GETcategorias
 {
     public static BaseResponse GetAllCategorias(List<Categorias> categories)
     {
-       return DataResponse<Categorias>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: categories
+        return new DataResponse<List<Categorias>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: categories);
     }
 
     public static BaseResponse GetCategoriaById(List<Categorias> categories, int id_categoria)

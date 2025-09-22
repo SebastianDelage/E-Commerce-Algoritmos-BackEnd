@@ -8,17 +8,17 @@ namespace E_commerce.Endpoints.DetalleOrden.Handlers
 
     public class GETdetalleOrden
 {
-    public static BaseResponse GetAllDetalleOrden(List<DetalleOrden> detalleOrdens)
+    public static BaseResponse GetAllDetalleOrden(List<DetalleOrdenes> detalleOrdens)
     {
-        return new DataResponse<List<DetalleOrden>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: detalleOrdens);
+        return new DataResponse<List<DetalleOrdenes>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: detalleOrdens);
     }
 
-    public static BaseResponse GetDetalleOrdenById(List<DetalleOrden> detalleOrdens, int id_detalleOrden)
+    public static BaseResponse GetDetalleOrdenById(List<DetalleOrdenes> detalleOrdens, int id_detalleOrden)
     {
-        DetalleOrden? tmp = detalleOrdens.FirstOrDefault(x => x.DetalleOrdenId == id_detalleOrden);
+        DetalleOrdenes? tmp = detalleOrdens.FirstOrDefault(x => x.DetalleOrdenId == id_detalleOrden);
         if (tmp != null)
         {
-            return new DataResponse<DetalleOrden>(true, (int)HttpStatusCode.OK, "Detalle de Orden encontrado", data: tmp);
+            return new DataResponse<DetalleOrdenes>(true, (int)HttpStatusCode.OK, "Detalle de Orden encontrado", data: tmp);
         }
         else
         {

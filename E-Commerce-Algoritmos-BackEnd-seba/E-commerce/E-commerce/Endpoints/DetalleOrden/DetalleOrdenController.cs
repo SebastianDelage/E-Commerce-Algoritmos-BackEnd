@@ -7,8 +7,8 @@ namespace E_commerce.Endpoints.DetalleOrden
 { 
     public class DetalleOrdenController : ControllerBase
     {
-        private readonly IRepository<DetalleOrden> _detalleOrdenRepository;
-        public DetalleOrdenController(IRepository<DetalleOrden> detalleOrdenRepository)
+        private readonly IRepository<DetalleOrdenes> _detalleOrdenRepository;
+        public DetalleOrdenController(IRepository<DetalleOrdenes> detalleOrdenRepository)
         {
             _detalleOrdenRepository = detalleOrdenRepository;
         }
@@ -16,19 +16,19 @@ namespace E_commerce.Endpoints.DetalleOrden
         [Route("getAll")]
         public async Task<BaseResponse> GetAll()
         {
-            var query = DetalleOrden.GetAllDetalleOrdens();
+            var query = DetalleOrdenes.GetAllDetalleOrden();
             var result = await _detalleOrdenRepository.GetAllAsync(query);
-            return new DataResponse<IEnumerable<DetalleOrden>>(true, 200, "Resultado", data: result);
+            return new DataResponse<IEnumerable<DetalleOrdenes>>(true, 200, "Resultado", data: result);
         }
         [HttpGet]
         [Route("getById/{id_detalle_orden}")]
         public async Task<BaseResponse> GetById(int id_detalle_orden)
         {
-            var query = DetalleOrden.GetDetalleOrdenById(id_detalle_orden);
+            var query = DetalleOrdenes.GetDetalleOrdenById(id_detalle_orden);
             var result = await _detalleOrdenRepository.GetByIdAsync(query);
             if (result != null)
             {
-                return new DataResponse<DetalleOrden>(true, 200, "Detalle de orden encontrado", data: result);
+                return new DataResponse<DetalleOrdenes>(true, 200, "Detalle de orden encontrado", data: result);
             }
             else
             {
