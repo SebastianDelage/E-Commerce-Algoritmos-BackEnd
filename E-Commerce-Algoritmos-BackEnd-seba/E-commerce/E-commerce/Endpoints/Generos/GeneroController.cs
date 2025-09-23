@@ -3,7 +3,7 @@ using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace E_commerce.Endpoints.Genero
+namespace E_commerce.Endpoints.Generos
 {
     public class GeneroController : ControllerBase
     {

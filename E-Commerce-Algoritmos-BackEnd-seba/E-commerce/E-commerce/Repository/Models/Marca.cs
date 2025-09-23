@@ -5,7 +5,7 @@
         public int MarcaId { get; set; }
         public string Nombre {  get; set; }
     
-
+        
         public Marca() { }
 
         public Marca(int marcaId, string nombre)
@@ -13,6 +13,7 @@
             MarcaId = marcaId;
             Nombre = nombre;
         }
+
         public static string GetAllMarcas()
         {
             return string.Format("SELECT * FROM marcas");
