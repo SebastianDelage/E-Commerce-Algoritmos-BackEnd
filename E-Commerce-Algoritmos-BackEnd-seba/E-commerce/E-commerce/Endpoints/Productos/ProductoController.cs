@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.Productos
 {
+
     public class ProductoController : ControllerBase
     {
         private readonly IRepository<Producto> _personaRepository;
@@ -22,7 +23,7 @@ namespace E_commerce.Endpoints.Productos
             var query = Producto.GetAllProductos();
             var result = await _personaRepository.GetAllAsync(query);
 
-            return new DataResponse<IEnumerable<Producto>>(true,200,"Resultado",data:result);
+            return new DataResponse<IEnumerable<Producto>>(true, 200, "Resultado", data: result);
         }
 
         [HttpGet]
@@ -40,4 +41,5 @@ namespace E_commerce.Endpoints.Productos
                 return new BaseResponse(false, 404, "Producto no encontrado");
             }
         }
+    }
 }

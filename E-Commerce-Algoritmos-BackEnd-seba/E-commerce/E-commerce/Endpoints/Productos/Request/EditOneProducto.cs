@@ -3,7 +3,7 @@ using E_commerce.Repository.Models;
 using System.Net;
 using Microsoft.AspNetCore.Identity;
 
-using namespace E_commerce.Endpoints.Productos.Request
+namespace E_commerce.Endpoints.Productos.Request
 {
 
     public class EditOneProducto

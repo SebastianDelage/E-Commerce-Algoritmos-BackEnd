@@ -25,7 +25,7 @@ namespace E_commerce.Endpoints.Categoria
 
         [HttpGet]
         [Route("getById/{id_categoria}")]
-        public async Task<BaseResponse> GetById(int id_categoria)
+        public async Task<BaseResponse> GetById([FromQuery]int id_categoria)
         {
             var query = Categorias.GetCategoriaById(id_categoria);
             var result = await _categoriaRepository.GetByIdAsync(query);
@@ -37,6 +37,18 @@ namespace E_commerce.Endpoints.Categoria
             {
                 return new BaseResponse(false, 404, "Categoria no encontrada");
             }
+        }
+
+
+        [HttpPost]
+        [Route("createCategoria")]
+        public async Task<BaseResponse> CreateCategoria([FromBody] Categorias categories)
+        {
+            var query = categories.CreateCategoria();
+            var existingCategoria = await _categoriaRepository.AddAsync(query);
+
+            return new BaseResponse(true, 201, "Categoria creada exitosamente");
+
         }
     }
 

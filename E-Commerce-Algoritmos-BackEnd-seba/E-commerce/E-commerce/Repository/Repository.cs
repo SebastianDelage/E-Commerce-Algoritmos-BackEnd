@@ -34,6 +34,11 @@ public class Repository<T> : IRepository<T> where T : class
         using var connection = CreateConnection();
         return await connection.ExecuteAsync(query);
     }
-
+    //como funciona esto?
+    public async Task<int> AddAsync(string query)
+    {
+        using var connection = CreateConnection();
+        return await connection.ExecuteAsync(query);
+    }
 }
 

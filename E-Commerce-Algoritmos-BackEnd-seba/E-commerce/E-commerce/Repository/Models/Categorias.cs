@@ -24,7 +24,7 @@
             return string.Format($"SELECT * FROM categorias where categoria_id ={id}");
         }
 
-        public static string CreateCategoria(string nombre)
+        public static string CreateCategoria(int categoria_id,string nombre)
         {
             return string.Format($"INSERT INTO categorias (nombre) VALUES ('{nombre}')");
         }
