@@ -1,4 +1,6 @@
-﻿namespace E_commerce.Repository.Models
+﻿using System.Runtime.CompilerServices;
+
+namespace E_commerce.Repository.Models
 {
     public class Categorias
     {
@@ -23,10 +25,15 @@
         {
             return string.Format($"SELECT * FROM categorias where categoria_id ={id}");
         }
-
-        public static string CreateCategoria(int categoria_id,string nombre)
+        //por quie este no tiene que ser static?
+        public string CreateCategoria()
         {
-            return string.Format($"INSERT INTO categorias (nombre) VALUES ('{nombre}')");
+            return string.Format($"INSERT INTO categorias (nombre) VALUES ('{Nombre}')");
+        }
+
+        public string UpdateCategoriaById(int id,string nombre)
+        {
+            return string.Format($"UPDATE categorias SET nombre = '{nombre}' WHERE categoria_id = {id}");
         }
 
     }

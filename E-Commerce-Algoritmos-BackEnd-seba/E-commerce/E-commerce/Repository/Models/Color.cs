@@ -28,5 +28,10 @@
         {
             return string.Format($"INSERT INTO colores (nombre, codigo) VALUES ('{nombre}', '{codigo}')");
         }
+
+        public string UpdateColor(int id, string nombre, string codigo)
+        {
+            return string.Format($"UPDATE colores SET nombre = '{nombre}', codigo = '{codigo}' WHERE color_id = {id}");
+        }
     }
 }

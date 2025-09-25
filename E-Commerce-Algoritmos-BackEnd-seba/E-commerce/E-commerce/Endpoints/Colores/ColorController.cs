@@ -36,6 +36,41 @@ namespace E_commerce.Endpoints.Colores
                 return new BaseResponse(false, 404, "Color no encontrado");
             }
         }
+
+        [HttpPatch]
+        [Route("update/{id_color}")]
+        public async Task<BaseResponse> UpdateColor(int id_color, [FromBody] Color colors)
+        {
+            var query = colors.UpdateColor(id_color, colors.Nombre, colors.Codigo);
+            var result = await _colorRepository.UpdateAsync(query);
+
+            if (result == null)
+            {
+                return new BaseResponse(false, 404, "Color no encontrado");
+            }
+            else
+            {
+                return new DataResponse<List<Color>>(true, 200, "Color actualizado", data: result);
+            }
+
+        }
+
+        [HttpPost]
+        [Route("CrateColor")]
+
+        public async Task<BaseResponse> CreateColor([FromBody] Color colors)
+        {
+            var query = colors.CreateColor(colors.Nombre, colors.Codigo);
+            var result = await _colorRepository.AddAsync(query);
+            if (result == null)
+            {
+                return new BaseResponse(false, 409, "Color ya existe");
+            }
+            else
+            {
+                return new DataResponse<List<Color>>(true, 200, "Color creado", data: result);
+            }
+        }
     }
 }
 

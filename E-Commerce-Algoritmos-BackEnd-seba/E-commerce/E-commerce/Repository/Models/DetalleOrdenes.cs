@@ -28,5 +28,15 @@
         {
             return string.Format($"SELECT * FROM detalle_orden where detalle_orden_id ={id}");
         }
+
+        public static string CreateDetalleOrden(int ordenId, int stockId, int cantidad, decimal precioUnitario)
+        {
+            return string.Format($"INSERT INTO detalle_orden (orden_id, stock_id, cantidad, precio_unitario) VALUES ({ordenId}, {stockId}, {cantidad}, {precioUnitario})");
+        }
+
+        public static string UpdateDetalleOrden(int id, int ordenId, int stockId, int cantidad, decimal precioUnitario)
+        {
+            return string.Format($"UPDATE detalle_orden SET orden_id = {ordenId}, stock_id = {stockId}, cantidad = {cantidad}, precio_unitario = {precioUnitario} WHERE detalle_orden_id = {id}");
+        }
     }
 }

@@ -47,8 +47,18 @@ namespace E_commerce.Endpoints.Categoria
             var query = categories.CreateCategoria();
             var existingCategoria = await _categoriaRepository.AddAsync(query);
 
-            return new BaseResponse(true, 201, "Categoria creada exitosamente");
+            return new BaseResponse(true, 201, "Categoria creada exitosamente"); 
 
+        }
+
+        [HttpPatch]
+        [Route("UpadateCategoria")]
+
+        public async Task<BaseResponse> UpdateCategoria([FromBody] Categorias categories,int id_categoria,string nombre)
+        {
+            var query = categories.UpdateCategoriaById(id_categoria,nombre);
+            var existingCategoria = await _categoriaRepository.UpdateAsync(query);
+            return new BaseResponse(true, 200, "Categoria actualizada exitosamente");
         }
     }
 

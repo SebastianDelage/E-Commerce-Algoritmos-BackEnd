@@ -1,6 +1,7 @@
 ﻿using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using System.Net;
+using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.Categoria.Handlers
 {
@@ -10,7 +11,7 @@ namespace E_commerce.Endpoints.Categoria.Handlers
         {
             Categorias? tmp = catgories.FirstOrDefault(x => x.CategoriaId == cagoira_id);
 
-            if (tmp != null)
+            if (tmp == null)
             {
                 return new BaseResponse(false, (int)HttpStatusCode.Conflict, "Categoria ya existe");
             }

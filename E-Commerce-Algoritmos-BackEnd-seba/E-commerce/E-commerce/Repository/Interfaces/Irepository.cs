@@ -6,5 +6,6 @@
         Task<T?> GetByIdAsync(string query);//traer de a un solo resultado
         Task<int> ExecuteAsync(string query);//ejecuta cualquier query
         Task<int> AddAsync(string query);//agregar un nuevo registro
+        Task<int> UpdateAsync(string query);//actualizar un registro
     }
 }

@@ -40,5 +40,11 @@ public class Repository<T> : IRepository<T> where T : class
         using var connection = CreateConnection();
         return await connection.ExecuteAsync(query);
     }
+
+    public async Task<int> UpdateAsync(string query)
+    {
+        using var connection = CreateConnection();
+        return await connection.ExecuteAsync(query);
+    }
 }
 
