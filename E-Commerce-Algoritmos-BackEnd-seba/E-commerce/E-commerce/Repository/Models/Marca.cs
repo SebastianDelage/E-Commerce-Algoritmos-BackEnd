@@ -24,13 +24,13 @@
             return string.Format($"SELECT * FROM marcas where marca_id ={id}");
         }
 
-        public static string CreateMarca(int marcaId, string nombre)
+        public string CreateMarca()
         {
-            return string.Format($"INSERT INTO marcas (marca_id, nombre) VALUES ({marcaId}, '{nombre}')");
+            return string.Format($"INSERT INTO marcas (nombre) VALUE ( '{Nombre}')");
         }
-        public static string UpdateMarca(int id, string nombre)
+        public string UpdateMarca(int id)
         {
-            return string.Format($"UPDATE marcas SET nombre = '{nombre}' WHERE marca_id = {id}");
+            return string.Format($"UPDATE marcas SET nombre = '{Nombre}' WHERE marca_id = {id}");
         }
 
     }

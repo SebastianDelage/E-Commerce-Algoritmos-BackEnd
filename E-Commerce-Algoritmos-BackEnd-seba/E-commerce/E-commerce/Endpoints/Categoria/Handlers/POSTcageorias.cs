@@ -7,9 +7,9 @@ namespace E_commerce.Endpoints.Categoria.Handlers
 {
     public class POSTcageoroas
     {
-        public static BaseResponse CreateCategoria(List<Categorias> catgories ,int cagoira_id,string nombre)
+        public static BaseResponse CreateCategoria(List<Categorias> catgories,int categoria_id)
         {
-            Categorias? tmp = catgories.FirstOrDefault(x => x.CategoriaId == cagoira_id);
+            Categorias? tmp = catgories.FirstOrDefault(x => x.CategoriaId == categoria_id);
 
             if (tmp == null)
             {
@@ -17,7 +17,7 @@ namespace E_commerce.Endpoints.Categoria.Handlers
             }
             else
             {
-                Categorias newCategoria = new Categorias(cagoira_id, nombre);
+                Categorias newCategoria = new Categorias();
                 catgories.Add(newCategoria);
 
                 return new DataResponse<Categorias>(true, (int)HttpStatusCode.Created, "Categoria creada", data: newCategoria);

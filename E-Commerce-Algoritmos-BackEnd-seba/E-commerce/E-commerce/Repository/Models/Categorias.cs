@@ -4,6 +4,8 @@ namespace E_commerce.Repository.Models
 {
     public class Categorias
     {
+
+        //las propiedades deben tener el mismo nombre que las columnas de la base de datos
         public int CategoriaId { get; set; }
         public string Nombre { get; set; }
 
@@ -31,9 +33,9 @@ namespace E_commerce.Repository.Models
             return string.Format($"INSERT INTO categorias (nombre) VALUES ('{Nombre}')");
         }
 
-        public string UpdateCategoriaById(int id,string nombre)
+        public string UpdateCategoriaById()
         {
-            return string.Format($"UPDATE categorias SET nombre = '{nombre}' WHERE categoria_id = {id}");
+            return string.Format($"UPDATE categorias SET nombre = '{Nombre}' WHERE categoria_id = {CategoriaId}");
         }
 
     }

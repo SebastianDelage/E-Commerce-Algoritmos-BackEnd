@@ -7,13 +7,12 @@ namespace E_commerce.Endpoints.Marcas.Handlers
 {
     public class PATCHmarca
     {
-        public static BaseResponse UpdateMarca(List<Marca> marcas, int id_marca, string nombre)
+        public static BaseResponse UpdateMarca(List<Marca> marcas, int id_marca)
         {
             Marca? tmp = marcas.FirstOrDefault(x => x.MarcaId == id_marca);
             if (tmp != null)
             {
-                tmp.Nombre = nombre;
-                return new DataResponse<Marca>(true, (int)HttpStatusCode.OK, "Marca actualizada", data: tmp);
+                return new DataResponse<List<Marca>>(true, (int)HttpStatusCode.OK, "Marca actualizada", data: marcas);
             }
             else
             {

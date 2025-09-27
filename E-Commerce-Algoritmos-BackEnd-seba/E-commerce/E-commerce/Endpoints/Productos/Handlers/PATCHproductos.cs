@@ -8,7 +8,7 @@ namespace E_commerce.Endpoints.Productos.Handlers
 {
     public class PATCHproductos
     {
-        public static BaseResponse EditOnePersona(List<EditOneProducto> product, int id_producto, string descripcion)
+        public static BaseResponse EditOnePersona(List<EditOneProducto> product, int id_producto)
         {
             EditOneProducto? tmp = product.FirstOrDefault(x => x.ProductoId == id_producto);
 

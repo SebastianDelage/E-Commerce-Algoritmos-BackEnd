@@ -6,7 +6,7 @@ namespace E_commerce.Endpoints.Colores.Handlers
 {
     public class POSTcolores
     {
-        public static BaseResponse CreateColor(List<Color> colors, int color_id, string nombre, string codigo)
+        public static BaseResponse CreateColor(List<Color> colors, int color_id)
         {
             Color? tmp = colors.FirstOrDefault(x => x.ColorId == color_id);
             if (tmp != null)
