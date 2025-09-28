@@ -22,7 +22,7 @@ namespace E_commerce.Endpoints.Ordenes
 		}
 		[HttpGet]
 		[Route("getById/{id_orden}")]
-		public async Task<BaseResponse> GetById(int id_color)
+		public async Task<BaseResponse> GetById([FromQuery]int id_color)
 		{
 			var query = Orden.GetOrdenById(id_color);
 			var result = await _ordenRepository.GetByIdAsync(query);
@@ -34,6 +34,23 @@ namespace E_commerce.Endpoints.Ordenes
 			{
 				return new BaseResponse(false, 404, "Orden no encontrada");
 			}
+
 		}
-	}
+
+		[HttpPost]
+		[Route("CreateOrden")]
+		public async Task<BaseResponse> Create([FromBody] Orden orden)
+		{
+			var query = Orden.InsertOrden();
+			var result = await _ordenRepository.AddAsync(query);
+			if (result != null)
+			{
+				return new DataResponse<Orden>(true, 200, "Orden creada", data: result);
+			}
+			else
+			{
+				return new BaseResponse(false, 409, "Orden ya existe");
+			}
+        }
+    }
 }

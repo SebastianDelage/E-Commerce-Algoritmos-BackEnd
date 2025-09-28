@@ -41,7 +41,7 @@ namespace E_commerce.Endpoints.Colores
         [Route("update/{id_color}")]
         public async Task<BaseResponse> UpdateColor(int id_color, [FromBody] Color colors)
         {
-            var query = colors.UpdateColor(id_color, colors.Nombre, colors.Codigo);
+            var query = colors.UpdateColor();
             var result = await _colorRepository.UpdateAsync(query);
 
             if (result == null)
@@ -60,7 +60,7 @@ namespace E_commerce.Endpoints.Colores
 
         public async Task<BaseResponse> CreateColor([FromBody] Color colors)
         {
-            var query = colors.CreateColor(colors.Nombre, colors.Codigo);
+            var query = colors.CreateColor();
             var result = await _colorRepository.AddAsync(query);
             if (result == null)
             {
