@@ -7,22 +7,16 @@ namespace E_commerce.Endpoints.Productos.Handlers
 {
     public class GETproducto
     {
-        public static BaseResponse GetAllProductos(List<Producto> products)
+        public static BaseResponse GetAllProductos()
         {
-            return new DataResponse<List<Producto>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data:products);
+            return new DataResponse<Producto>(true, (int)HttpStatusCode.OK, "color creado");
         }
 
-        public static BaseResponse GetProductosById(List<Producto>products,int id_producto) 
+        public static BaseResponse GetProductosById(int id_producto) 
         {
-            Producto? tmp = products.FirstOrDefault(x => x.ProductoId == id_producto);
-            if (tmp != null)
-            {
-                return new DataResponse<List<Producto>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: products);
-            }
-            else
-            {
-                return new BaseResponse(false, (int)HttpStatusCode.NotFound, "Producto no encontrado");
-            }
+
+           return new DataResponse<List<Producto>>(true, (int)HttpStatusCode.OK, "Lista encontrada");
+
         }
     }
 }

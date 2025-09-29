@@ -36,6 +36,38 @@ namespace E_commerce.Endpoints.DetalleOrden
                 return new BaseResponse(false, 404, "Detalle de orden no encontrado");
             }
         }
+
+        [HttpPost]
+        [Route("CreateDetalleOrden")]
+        public async Task<BaseResponse> Create([FromBody] DetalleOrdenes detalleOrden)
+        {
+            var query = detalleOrden.CreateDetalleOrden();
+            var result = await _detalleOrdenRepository.AddAsync(query);
+            if (result > 0)
+            {
+                return new DataResponse<DetalleOrdenes>(true, 200, "Detalle de orden creado");
+            }
+            else
+            {
+                return new BaseResponse(false, 409, "Detalle de orden ya existe");
+            }
+        }
+
+        [HttpPatch]
+        [Route("update/{id_detalle_orden}")]
+        public async Task<BaseResponse> UpdateDetalleOrden(int id_detalle_orden, [FromBody] DetalleOrdenes detalleOrden)
+        {
+            var query = detalleOrden.UpdateDetalleOrden(id_detalle_orden);
+            var result = await _detalleOrdenRepository.UpdateAsync(query);
+            if (result == 0)
+            {
+                return new BaseResponse(false, 404, "Detalle de orden no encontrado");
+            }
+            else
+            {
+                return new DataResponse <DetalleOrdenes>(true, 200, "Detalle de orden actualizado");
+            }
+        }
     }
 
 }

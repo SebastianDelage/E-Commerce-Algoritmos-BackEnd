@@ -38,5 +38,21 @@ namespace E_commerce.Endpoints.Marcas
                 return new BaseResponse(false, 404, "Genero no encontrado");
             }
         }
+
+        [HttpPost]
+        [Route("CrateMarca")]
+        public async Task<BaseResponse> Create([FromBody] Marca marca)
+        {
+            var query = marca.CreateMarca();
+            var result = await _marcaRepository.AddAsync(query);
+            if (result > 0)
+            {
+                return new DataResponse<Marca>(true, 200, "Marca creada");
+            }
+            else
+            {
+                return new BaseResponse(false, 409, "Marca ya existe");
+            }
+        }
     }
 }

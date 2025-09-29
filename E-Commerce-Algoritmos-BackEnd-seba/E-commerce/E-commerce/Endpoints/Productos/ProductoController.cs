@@ -41,5 +41,37 @@ namespace E_commerce.Endpoints.Productos
                 return new BaseResponse(false, 404, "Producto no encontrado");
             }
         }
+
+        [HttpPost]
+        [Route("CrateProducto")]
+        public async Task<BaseResponse> Create([FromBody] Producto producto)
+        {
+            var query = producto.CreateProducto();
+            var result = await _personaRepository.AddAsync(query);
+            if (result > 0)
+            {
+                return new DataResponse<Producto>(true, 200, "Producto creado");
+            }
+            else
+            {
+                return new BaseResponse(false, 409, "Producto ya existe");
+            }
+        }
+
+        [HttpPatch]
+        [Route ("UpdateProducto/{id_producto}")]
+        public async Task<BaseResponse> UpdateProducto(int id_producto, [FromBody] Producto producto)
+        {
+            var query = producto.UpdateProducto(id_producto);
+            var result = await _personaRepository.UpdateAsync(query);
+            if (result <= 0)
+            {
+                return new BaseResponse(false, 404, "Producto no encontrado");
+            }
+            else
+            {
+                return new DataResponse<List<Producto>>(true, 200, "Producto actualizado");
+            }
+        }
     }
 }

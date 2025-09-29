@@ -36,5 +36,35 @@ namespace E_commerce.Endpoints.StockProductos
                 return new BaseResponse(false, 404, "Color no encontrado");
             }
         }
+
+        [HttpPatch]
+        [Route("updateStock/{id_color}")]
+        public async Task<BaseResponse> UpdateStock(int id_stock, [FromBody] StockProducto stock)
+        {
+            var query = stock.UpdateStockProducto(id_stock);
+            var result = await _stockRepository.UpdateAsync(query);
+            if (result <= 0)
+            {
+                return new BaseResponse(false, 404, "Color no encontrado");
+            }
+            else
+            {
+                return new DataResponse<List<StockProducto>>(true, 200, "Color actualizado");
+            }
+        }
+
+        public async Task<BaseResponse> Create([FromBody] StockProducto stock)
+        {
+            var query = stock.CreateStockProducto();
+            var result = await _stockRepository.AddAsync(query);
+            if (result > 0)
+            {
+                return new DataResponse<StockProducto>(true, 200, "Color creado");
+            }
+            else
+            {
+                return new BaseResponse(false, 409, "Color ya existe");
+            }
+        }
     }
 }

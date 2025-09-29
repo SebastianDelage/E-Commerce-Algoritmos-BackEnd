@@ -48,9 +48,14 @@ namespace E_commerce.Endpoints.Categoria
         {
             var query = categories.CreateCategoria();
             var existingCategoria = await _categoriaRepository.AddAsync(query);
-
-            return new BaseResponse(true, 201, "Categoria creada exitosamente"); 
-
+            if (existingCategoria <= 0)
+            {
+                return new BaseResponse(false, 409, "La categoria ya existe");
+            }
+            else
+            {
+                return new BaseResponse(true, 201, "Categoria creada exitosamente");
+            }
         }
 
         [HttpPatch]
@@ -59,7 +64,15 @@ namespace E_commerce.Endpoints.Categoria
         {
             var query = categories.UpdateCategoriaById();
             var existingCategoria = await _categoriaRepository.UpdateAsync(query);
-            return new BaseResponse(true, 200, "Categoria actualizada exitosamente");
+            if(existingCategoria <= 0)
+            {
+                return new BaseResponse(false, 404, "La categoria no existe");
+            }
+            else
+            {
+                return new BaseResponse(true, 200, "Categoria actualizada exitosamente");
+            }
+               
         }
     }
 

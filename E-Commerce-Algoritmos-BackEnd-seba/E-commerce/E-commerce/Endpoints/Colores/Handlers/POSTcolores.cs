@@ -6,17 +6,9 @@ namespace E_commerce.Endpoints.Colores.Handlers
 {
     public class POSTcolores
     {
-        public static BaseResponse CreateColor(List<Color> colors, int color_id)
+        public static BaseResponse CreateColor(int color_id)
         {
-            Color? tmp = colors.FirstOrDefault(x => x.ColorId == color_id);
-            if (tmp != null)
-            {
-                return new DataResponse<List<Color>>(false, (int)HttpStatusCode.OK, "Color crado",data:colors);
-            }
-            else
-            {
-                return new BaseResponse(false, (int)HttpStatusCode.Conflict, "Color ya existe");
-            }
+            return new DataResponse<Color>(true, (int)HttpStatusCode.OK, "Color crado");
         }
     }
 }

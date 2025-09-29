@@ -7,22 +7,14 @@ namespace E_commerce.Endpoints.Generos.Handlers
 {
     public class GETgenero
     {
-        public static BaseResponse GetAllGeneros(List<Genero> generos)
+        public static BaseResponse GetAllGeneros()
         {
-            return new DataResponse<List<Genero>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: generos);
+            return new DataResponse <Genero>(true, (int)HttpStatusCode.OK, "Lista encontrada");
         }
 
-        public static BaseResponse GetGeneroById(List<Genero> generos, int id_genero)
+        public static BaseResponse GetGeneroById(Genero generos, int id_genero)
         {
-            Genero? tmp = generos.FirstOrDefault(x => x.GeneroId == id_genero);
-            if (tmp != null)
-            {
-                return new DataResponse<Genero>(true, (int)HttpStatusCode.OK, "Genero encontrado", data: tmp);
-            }
-            else
-            {
-                return new BaseResponse(false, (int)HttpStatusCode.NotFound, "Genero no encontrado");
-            }
+           return new DataResponse<Genero>(true, (int)HttpStatusCode.OK, "Genero encontrado");
         }
     }
 }

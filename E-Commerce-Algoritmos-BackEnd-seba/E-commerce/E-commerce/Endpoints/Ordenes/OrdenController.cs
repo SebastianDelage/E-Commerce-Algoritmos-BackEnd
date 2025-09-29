@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.Ordenes
 {
-    [Route("[Controller]")]
-    public class OrdenController : ControllerBase
+	[Route("[Controller]")]
+	public class OrdenController : ControllerBase
 	{
 		private readonly IRepository<Orden> _ordenRepository;
 		public OrdenController(IRepository<Orden> ordenRepository)
@@ -23,7 +23,7 @@ namespace E_commerce.Endpoints.Ordenes
 		}
 		[HttpGet]
 		[Route("getById/{id_orden}")]
-		public async Task<BaseResponse> GetById([FromQuery]int id_color)
+		public async Task<BaseResponse> GetById([FromQuery] int id_color)
 		{
 			var query = Orden.GetOrdenById(id_color);
 			var result = await _ordenRepository.GetByIdAsync(query);
@@ -43,8 +43,8 @@ namespace E_commerce.Endpoints.Ordenes
 		public async Task<BaseResponse> Create([FromBody] Orden orden)
 		{
 			var query = orden.InsertOrden();
-			var result =await _ordenRepository.AddAsync(query);
-			if (result != null)
+			var result = await _ordenRepository.AddAsync(query);
+			if (result > 0)
 			{
 				return new DataResponse<Orden>(true, 200, "Orden creada");
 			}
@@ -52,6 +52,23 @@ namespace E_commerce.Endpoints.Ordenes
 			{
 				return new BaseResponse(false, 409, "Orden ya existe");
 			}
-        }
-    }
+		}
+
+		[HttpPatch]
+		[Route("update/{id_orden}")]
+		public async Task<BaseResponse> UpdateOrden(int id_orden, [FromBody] Orden orden)
+		{
+			var query = orden.UpdateOrden(id_orden);
+			var result = await _ordenRepository.UpdateAsync(query);
+			if (result == 0)
+			{
+				return new BaseResponse(false, 404, "Orden no encontrada");
+			}
+			else
+			{
+				return new DataResponse<List<Orden>>(true, 200, "Orden actualizada");
+			}
+
+		}
+	}
 }

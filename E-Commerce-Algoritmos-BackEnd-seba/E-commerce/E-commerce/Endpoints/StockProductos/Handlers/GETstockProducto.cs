@@ -10,20 +10,12 @@ namespace E_commerce.Endpoints.StockProductos.Handlers
     {
          static public BaseResponse GetAllStockProductos(List<StockProducto> stockProductos)
         {
-            return new DataResponse<List<StockProducto>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: stockProductos);
+            return new DataResponse<StockProducto>(true, (int)HttpStatusCode.OK, "Lista encontrada");
         }
 
-        static public BaseResponse GetStockProductoById(List<StockProducto> stockProductos, int id_stockProducto)
+        static public BaseResponse GetStockProductoById(int id_stockProducto)
         {
-            StockProducto? tmp = stockProductos.FirstOrDefault(x => x.StockId == id_stockProducto);
-            if (tmp != null)
-            {
-                return new DataResponse<StockProducto>(true, (int)HttpStatusCode.OK, "StockProducto encontrado", data: tmp);
-            }
-            else
-            {
-                return new BaseResponse(false, (int)HttpStatusCode.NotFound, "StockProducto no encontrado");
-            }
+            return new DataResponse<StockProducto>(true, (int)HttpStatusCode.OK, "StockProducto encontrado");  
         }
     }
 }

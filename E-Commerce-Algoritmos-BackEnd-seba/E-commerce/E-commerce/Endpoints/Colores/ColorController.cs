@@ -45,7 +45,7 @@ namespace E_commerce.Endpoints.Colores
             var query = colors.UpdateColor();
             var result = await _colorRepository.UpdateAsync(query);
 
-            if (result == null)
+            if (result <= 0)
             {
                 return new BaseResponse(false, 404, "Color no encontrado");
             }
@@ -63,7 +63,7 @@ namespace E_commerce.Endpoints.Colores
         {
             var query = colors.CreateColor();
             var result = await _colorRepository.AddAsync(query);
-            if (result == null)
+            if (result <= 0)
             {
                 return new BaseResponse(false, 409, "Color ya existe");
             }

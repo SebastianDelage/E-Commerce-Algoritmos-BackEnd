@@ -15,15 +15,8 @@ public class GETcategorias
         return new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "Lista encontrada");
     }
 
-    public static BaseResponse GetCategoriaById(/*meter interfaz*/int id_categoria)
+    public static BaseResponse GetCategoriaById(int id_categoria)
     {
-        if 
-        {
-            return new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "Lista encontrada");
-        }
-        else
-        {
-            return new BaseResponse(false, (int)HttpStatusCode.NotFound, "Categoria no encontrada");
-        }
+        return new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "Lista encontrada");
     }
 }

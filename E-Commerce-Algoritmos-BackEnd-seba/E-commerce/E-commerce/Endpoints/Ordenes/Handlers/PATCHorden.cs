@@ -6,18 +6,9 @@ namespace E_commerce.Endpoints.Ordenes.Handlers
 {
     public class PATCHorden
     {
-        public static BaseResponse UpdateOrden(List<Orden> orden,int id)
+        public static BaseResponse UpdateOrden(Orden orden,int id)
         {
-            Orden? tmp = orden.FirstOrDefault(x => x.OrdenId == id);
-            if (tmp != null)
-            {
-                return new DataResponse<Orden>(true, 200, "Orden actualizada", data: tmp);
-            }
-            else
-            {
-                return new BaseResponse(false, 404, "Orden no encontrada");
-            }
-
+            return new DataResponse<Orden>(true, 200, "Orden actualizada", data: orden);
         }
     }
 }

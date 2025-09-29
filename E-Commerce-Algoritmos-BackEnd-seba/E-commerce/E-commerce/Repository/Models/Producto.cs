@@ -41,9 +41,14 @@ namespace E_commerce.Repository.Models
 
         }
 
-        public static string CreateProducto(string nombre, string descripcion, float precio, int categoria_id, int marca_id, int genero_id, string imagenURL)
+        public string CreateProducto()
         {
-            return string.Format($"INSERT INTO productos (nombre, descripcion, precio, categoria_id, marca_id, genero_id, imagen_url) VALUES ('{nombre}', '{descripcion}', {precio}, {categoria_id}, {marca_id}, {genero_id}, '{imagenURL}')");
+            return string.Format($"INSERT INTO productos (nombre, descripcion, precio, categoria_id, marca_id, genero_id, imagen_url) VALUES ('{Nombre}', '{Descripcion}', {Precio}, {CategoriaID}, {MarcaId}, {GeneroId}, '{ImagenUrl}')");
+        }
+
+        public string UpdateProducto(int id)
+        {
+            return string.Format($"UPDATE productos SET nombre = '{Nombre}', descripcion = '{Descripcion}', precio = {Precio}, categoria_id = {CategoriaID}, marca_id = {MarcaId}, genero_id = {GeneroId}, imagen_url = '{ImagenUrl}' WHERE producto_id = {id}");
         }
     }
 }

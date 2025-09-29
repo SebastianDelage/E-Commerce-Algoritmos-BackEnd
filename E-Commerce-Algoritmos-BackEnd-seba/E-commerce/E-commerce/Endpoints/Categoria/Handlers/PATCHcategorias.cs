@@ -8,17 +8,9 @@ namespace E_commerce.Endpoints.Categoria.Handlers
     public class PATCHcategorias
     {
 
-        public static BaseResponse UpdateCategoria(List<Categorias> categorias, int id_categoria)
+        public static BaseResponse UpdateCategoria(int id_categoria)
         {
-            Categorias? tmp = categorias.FirstOrDefault(x => x.CategoriaId == id_categoria);
-            if (tmp != null)
-            {
-                return new DataResponse<List<Categorias>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: categorias);
-            }
-            else
-            {
-                return new BaseResponse(false, (int)HttpStatusCode.NotFound, "Categoria no encontrada");
-            }
+            return new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "color creado");
         }
     }
 }

@@ -8,19 +8,9 @@ namespace E_commerce.Endpoints.Productos.Handlers
 {
     public class PATCHproductos
     {
-        public static BaseResponse EditOnePersona(List<EditOneProducto> product, int id_producto)
+        public static BaseResponse EditOnePersona( int id_producto)
         {
-            EditOneProducto? tmp = product.FirstOrDefault(x => x.ProductoId == id_producto);
-
-            if (tmp == null)
-            {
-                return new BaseResponse(false, (int)HttpStatusCode.NotFound, "Producto no encontrado");
-            }
-            else
-            {
-
-                return new DataResponse<EditOneProducto>(true, (int)HttpStatusCode.OK, "Producto modificado", data: tmp);
-            }
+            return new DataResponse<EditOneProducto>(true, (int)HttpStatusCode.OK, "Producto modificado");
         }
     }
 }
