@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.Productos
 {
-
+    [Route("[Controller]")]
     public class ProductoController : ControllerBase
     {
         private readonly IRepository<Producto> _personaRepository;
@@ -17,7 +17,7 @@ namespace E_commerce.Endpoints.Productos
         }
 
         [HttpGet]
-        [Route("getAll")]
+        [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
             var query = Producto.GetAllProductos();

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.Colores
 {
+    [Route("[Controller]")]
     public class ColorController : ControllerBase
     {
         private readonly IRepository<Color> _colorRepository;
@@ -13,7 +14,7 @@ namespace E_commerce.Endpoints.Colores
             _colorRepository = colorRepository;
         }
         [HttpGet]
-        [Route("getAll")]
+        [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
             var query = Color.GetAllColores();
@@ -50,7 +51,7 @@ namespace E_commerce.Endpoints.Colores
             }
             else
             {
-                return new DataResponse<List<Color>>(true, 200, "Color actualizado", data: result);
+                return new DataResponse<List<Color>>(true, 200, "Color actualizado");
             }
 
         }
@@ -68,7 +69,7 @@ namespace E_commerce.Endpoints.Colores
             }
             else
             {
-                return new DataResponse<List<Color>>(true, 200, "Color creado", data: result);
+                return new DataResponse<List<Color>>(true, 200, "Color creado");
             }
         }
     }

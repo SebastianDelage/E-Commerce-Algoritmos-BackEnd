@@ -27,7 +27,7 @@ namespace E_commerce.Repository.Models
         {
             return string.Format($"SELECT * FROM categorias where categoria_id ={id}");
         }
-        //por quie este no tiene que ser static?
+
         public string CreateCategoria()
         {
             return string.Format($"INSERT INTO categorias (nombre) VALUES ('{Nombre}')");

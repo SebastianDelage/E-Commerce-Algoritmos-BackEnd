@@ -4,7 +4,8 @@ using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.DetalleOrden
-{ 
+{
+    [Route("[Controller]")]
     public class DetalleOrdenController : ControllerBase
     {
         private readonly IRepository<DetalleOrdenes> _detalleOrdenRepository;
@@ -13,7 +14,7 @@ namespace E_commerce.Endpoints.DetalleOrden
             _detalleOrdenRepository = detalleOrdenRepository;
         }
         [HttpGet]
-        [Route("getAll")]
+        [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
             var query = DetalleOrdenes.GetAllDetalleOrden();

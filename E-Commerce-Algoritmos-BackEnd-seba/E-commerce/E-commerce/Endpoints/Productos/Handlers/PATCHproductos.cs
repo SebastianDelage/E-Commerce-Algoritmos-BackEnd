@@ -14,13 +14,10 @@ namespace E_commerce.Endpoints.Productos.Handlers
 
             if (tmp == null)
             {
-                return new BaseResponse(false, (int)HttpStatusCode.NotFound, "Producto no eecontrado");
+                return new BaseResponse(false, (int)HttpStatusCode.NotFound, "Producto no encontrado");
             }
             else
             {
-                product.Remove(tmp);
-                tmp.Descripcion = descripcion;
-                product.Add(tmp);
 
                 return new DataResponse<EditOneProducto>(true, (int)HttpStatusCode.OK, "Producto modificado", data: tmp);
             }

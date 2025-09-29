@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.Ordenes
 {
-	public class OrdenController : ControllerBase
+    [Route("[Controller]")]
+    public class OrdenController : ControllerBase
 	{
 		private readonly IRepository<Orden> _ordenRepository;
 		public OrdenController(IRepository<Orden> ordenRepository)
@@ -13,7 +14,7 @@ namespace E_commerce.Endpoints.Ordenes
 			_ordenRepository = ordenRepository;
 		}
 		[HttpGet]
-		[Route("getAll")]
+		[Route("GetAll")]
 		public async Task<BaseResponse> GetAll()
 		{
 			var query = Orden.GetAllOrdenes();
@@ -41,11 +42,11 @@ namespace E_commerce.Endpoints.Ordenes
 		[Route("CreateOrden")]
 		public async Task<BaseResponse> Create([FromBody] Orden orden)
 		{
-			var query = Orden.InsertOrden();
-			var result = await _ordenRepository.AddAsync(query);
+			var query = orden.InsertOrden();
+			var result =await _ordenRepository.AddAsync(query);
 			if (result != null)
 			{
-				return new DataResponse<Orden>(true, 200, "Orden creada", data: result);
+				return new DataResponse<Orden>(true, 200, "Orden creada");
 			}
 			else
 			{

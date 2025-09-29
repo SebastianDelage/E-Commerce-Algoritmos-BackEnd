@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.Marcas
 {
+
+    [Route("[Controller]")]
     public class MarcaController : ControllerBase
     {
         private readonly IRepository<Marca> _marcaRepository;
@@ -13,7 +15,7 @@ namespace E_commerce.Endpoints.Marcas
             _marcaRepository = marcaRepository;
         }
         [HttpGet]
-        [Route("getAll")]
+        [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
             var query = Marca.GetAllMarcas();

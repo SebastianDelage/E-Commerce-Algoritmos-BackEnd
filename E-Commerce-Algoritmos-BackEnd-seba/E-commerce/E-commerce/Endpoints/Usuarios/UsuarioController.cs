@@ -4,7 +4,8 @@ using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.Usuarios
-{ 
+{
+    [Route("[Controller]")]
     public class UsuarioController : ControllerBase
     {
         private readonly IRepository<Usuario> _usuarioRepository;
@@ -13,7 +14,7 @@ namespace E_commerce.Endpoints.Usuarios
             _usuarioRepository = usuarioRepository;
         }
         [HttpGet]
-        [Route("getAll")]
+        [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
             var query = Usuario.GetAllUsuarios();

@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.Talles
 {
-
-	public class TalleController : ControllerBase
+    [Route("[Controller]")]
+    public class TalleController : ControllerBase
 	{
 		private readonly IRepository<Talle> _talleRepository;
 		public TalleController(IRepository<Talle> talleRepository)
@@ -15,7 +15,7 @@ namespace E_commerce.Endpoints.Talles
 		}
 
 		[HttpGet]
-		[Route("getAll")]
+		[Route("GetAll")]
 		public async Task<BaseResponse> GetAll()
 		{
 			var query = Talle.GetAllTalles();

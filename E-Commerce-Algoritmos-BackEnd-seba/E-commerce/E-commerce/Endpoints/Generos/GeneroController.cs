@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.Generos
 {
+    [Route("[Controller]")]
     public class GeneroController : ControllerBase
     {
         private readonly IRepository<Repository.Models.Genero> _generoRepository;
@@ -13,7 +14,7 @@ namespace E_commerce.Endpoints.Generos
             _generoRepository = generoRepository;
         }
         [HttpGet]
-        [Route("getAll")]
+        [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
             var query = Genero.GetAllGeneros();

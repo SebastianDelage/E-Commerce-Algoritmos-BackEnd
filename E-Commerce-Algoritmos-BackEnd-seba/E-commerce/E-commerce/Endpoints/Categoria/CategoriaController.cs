@@ -7,6 +7,7 @@ using System;
 namespace E_commerce.Endpoints.Categoria
 {
 
+    [Route("[Controller]")]
     public class CategoriaController : ControllerBase
     {
       private readonly IRepository<Categorias> _categoriaRepository;
@@ -14,8 +15,9 @@ namespace E_commerce.Endpoints.Categoria
         {
             _categoriaRepository = categoriaRepository;
         }
+
         [HttpGet]
-        [Route("getAll")]
+        [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
             var query = Categorias.GetAllCategorias();
@@ -53,10 +55,9 @@ namespace E_commerce.Endpoints.Categoria
 
         [HttpPatch]
         [Route("UpadateCategoria")]
-
         public async Task<BaseResponse> UpdateCategoria([FromBody] Categorias categories,int id_categoria,string nombre)
         {
-            var query = categories.UpdateCategoriaById(id_categoria,nombre);
+            var query = categories.UpdateCategoriaById();
             var existingCategoria = await _categoriaRepository.UpdateAsync(query);
             return new BaseResponse(true, 200, "Categoria actualizada exitosamente");
         }

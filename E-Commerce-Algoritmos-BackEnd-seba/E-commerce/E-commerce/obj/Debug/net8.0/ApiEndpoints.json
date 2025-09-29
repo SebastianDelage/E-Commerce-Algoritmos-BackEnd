@@ -1,172 +1,18 @@
 [
   {
-    "ContainingType": "E_commerce.Endpoints.Usuarios.UsuarioController",
-    "Method": "GetAll",
-    "RelativePath": "getAll",
-    "HttpMethod": "GET",
+    "ContainingType": "E_commerce.Endpoints.Categoria.CategoriaController",
+    "Method": "CreateCategoria",
+    "RelativePath": "Categoria/createCategoria",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "E_commerce.Responses.BaseResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "categories",
+        "Type": "E_commerce.Repository.Models.Categorias",
+        "IsRequired": true
       }
-    ]
-  },
-  {
-    "ContainingType": "E_commerce.Endpoints.Talles.TalleController",
-    "Method": "GetAll",
-    "RelativePath": "getAll",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "E_commerce.Responses.BaseResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "E_commerce.Endpoints.StockProductos.StockProductoController",
-    "Method": "GetAll",
-    "RelativePath": "getAll",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "E_commerce.Responses.BaseResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
-    "Method": "GetAll",
-    "RelativePath": "getAll",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "E_commerce.Responses.BaseResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "E_commerce.Endpoints.Ordenes.OrdenController",
-    "Method": "GetAll",
-    "RelativePath": "getAll",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "E_commerce.Responses.BaseResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "E_commerce.Endpoints.Marcas.MarcaController",
-    "Method": "GetAll",
-    "RelativePath": "getAll",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "E_commerce.Responses.BaseResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "E_commerce.Endpoints.Generos.GeneroController",
-    "Method": "GetAll",
-    "RelativePath": "getAll",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "E_commerce.Responses.BaseResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "E_commerce.Endpoints.DetalleOrden.DetalleOrdenController",
-    "Method": "GetAll",
-    "RelativePath": "getAll",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "E_commerce.Responses.BaseResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "E_commerce.Endpoints.Colores.ColorController",
-    "Method": "GetAll",
-    "RelativePath": "getAll",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
+    ],
     "ReturnTypes": [
       {
         "Type": "E_commerce.Responses.BaseResponse",
@@ -182,7 +28,7 @@
   {
     "ContainingType": "E_commerce.Endpoints.Categoria.CategoriaController",
     "Method": "GetAll",
-    "RelativePath": "getAll",
+    "RelativePath": "Categoria/GetAll",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -202,7 +48,7 @@
   {
     "ContainingType": "E_commerce.Endpoints.Categoria.CategoriaController",
     "Method": "GetById",
-    "RelativePath": "getById/{id_categoria}",
+    "RelativePath": "Categoria/getById/{id_categoria}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -210,6 +56,11 @@
       {
         "Name": "id_categoria",
         "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id_categoria",
+        "Type": "",
         "IsRequired": true
       }
     ],
@@ -226,9 +77,91 @@
     ]
   },
   {
-    "ContainingType": "E_commerce.Endpoints.StockProductos.StockProductoController",
+    "ContainingType": "E_commerce.Endpoints.Categoria.CategoriaController",
+    "Method": "UpdateCategoria",
+    "RelativePath": "Categoria/UpadateCategoria",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categories",
+        "Type": "E_commerce.Repository.Models.Categorias",
+        "IsRequired": true
+      },
+      {
+        "Name": "id_categoria",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Colores.ColorController",
+    "Method": "CreateColor",
+    "RelativePath": "Color/CrateColor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "colors",
+        "Type": "E_commerce.Repository.Models.Color",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Colores.ColorController",
+    "Method": "GetAll",
+    "RelativePath": "Color/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Colores.ColorController",
     "Method": "GetById",
-    "RelativePath": "getById/{id_color}",
+    "RelativePath": "Color/getById/{id_color}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -253,15 +186,20 @@
   },
   {
     "ContainingType": "E_commerce.Endpoints.Colores.ColorController",
-    "Method": "GetById",
-    "RelativePath": "getById/{id_color}",
-    "HttpMethod": "GET",
+    "Method": "UpdateColor",
+    "RelativePath": "Color/update/{id_color}",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id_color",
         "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "colors",
+        "Type": "E_commerce.Repository.Models.Color",
         "IsRequired": true
       }
     ],
@@ -279,8 +217,28 @@
   },
   {
     "ContainingType": "E_commerce.Endpoints.DetalleOrden.DetalleOrdenController",
+    "Method": "GetAll",
+    "RelativePath": "DetalleOrden/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.DetalleOrden.DetalleOrdenController",
     "Method": "GetById",
-    "RelativePath": "getById/{id_detalle_orden}",
+    "RelativePath": "DetalleOrden/getById/{id_detalle_orden}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -304,9 +262,75 @@
     ]
   },
   {
+    "ContainingType": "E_commerce.Endpoints.Generos.GeneroController",
+    "Method": "GetAll",
+    "RelativePath": "Genero/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Generos.GeneroController",
+    "Method": "GetById",
+    "RelativePath": "Genero/getById/{id_genero}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_genero",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Marcas.MarcaController",
+    "Method": "GetAll",
+    "RelativePath": "Marca/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "E_commerce.Endpoints.Marcas.MarcaController",
     "Method": "GetById",
-    "RelativePath": "getById/{id_genero}",
+    "RelativePath": "Marca/getById/{id_genero}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -335,16 +359,16 @@
     ]
   },
   {
-    "ContainingType": "E_commerce.Endpoints.Generos.GeneroController",
-    "Method": "GetById",
-    "RelativePath": "getById/{id_genero}",
-    "HttpMethod": "GET",
+    "ContainingType": "E_commerce.Endpoints.Ordenes.OrdenController",
+    "Method": "Create",
+    "RelativePath": "Orden/CreateOrden",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id_genero",
-        "Type": "System.Int32",
+        "Name": "orden",
+        "Type": "E_commerce.Repository.Models.Orden",
         "IsRequired": true
       }
     ],
@@ -362,8 +386,28 @@
   },
   {
     "ContainingType": "E_commerce.Endpoints.Ordenes.OrdenController",
+    "Method": "GetAll",
+    "RelativePath": "Orden/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Ordenes.OrdenController",
     "Method": "GetById",
-    "RelativePath": "getById/{id_orden}",
+    "RelativePath": "Orden/getById/{id_orden}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -393,8 +437,28 @@
   },
   {
     "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
+    "Method": "GetAll",
+    "RelativePath": "Producto/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
     "Method": "GetById",
-    "RelativePath": "getById/{id_producto}",
+    "RelativePath": "Producto/getById/{id_producto}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -418,9 +482,75 @@
     ]
   },
   {
+    "ContainingType": "E_commerce.Endpoints.StockProductos.StockProductoController",
+    "Method": "GetAll",
+    "RelativePath": "StockProducto/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.StockProductos.StockProductoController",
+    "Method": "GetById",
+    "RelativePath": "StockProducto/getById/{id_color}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_color",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Talles.TalleController",
+    "Method": "GetAll",
+    "RelativePath": "Talle/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "E_commerce.Endpoints.Talles.TalleController",
     "Method": "GetById",
-    "RelativePath": "getById/{id_talle}",
+    "RelativePath": "Talle/getById/{id_talle}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -445,8 +575,28 @@
   },
   {
     "ContainingType": "E_commerce.Endpoints.Usuarios.UsuarioController",
+    "Method": "GetAll",
+    "RelativePath": "Usuario/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Usuarios.UsuarioController",
     "Method": "GetById",
-    "RelativePath": "getById/{id_usuario}",
+    "RelativePath": "Usuario/getById/{id_usuario}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

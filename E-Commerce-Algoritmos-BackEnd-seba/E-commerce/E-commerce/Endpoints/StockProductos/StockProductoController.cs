@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce.Endpoints.StockProductos
 {
+    [Route("[Controller]")]
     public class StockProductoController : ControllerBase
     {
         private readonly IRepository<StockProducto> _stockRepository;
@@ -13,7 +14,7 @@ namespace E_commerce.Endpoints.StockProductos
             _stockRepository = stockRepository;
         }
         [HttpGet]
-        [Route("getAll")]
+        [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
             var query = Color.GetAllColores();

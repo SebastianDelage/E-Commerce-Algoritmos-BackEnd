@@ -9,17 +9,17 @@ namespace E_commerce.Endpoints.Categoria.Handlers;
 
 public class GETcategorias
 {
-    public static BaseResponse GetAllCategorias(List<Categorias> categories)
+
+    public static BaseResponse GetAllCategorias()
     {
-        return new DataResponse<List<Categorias>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: categories);
+        return new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "Lista encontrada");
     }
 
-    public static BaseResponse GetCategoriaById(List<Categorias> categories, int id_categoria)
+    public static BaseResponse GetCategoriaById(/*meter interfaz*/int id_categoria)
     {
-        Categorias? tmp = categories.FirstOrDefault(x => x.CategoriaId == id_categoria);
-        if (tmp != null)
+        if 
         {
-            return new DataResponse<List<Categorias>>(true, (int)HttpStatusCode.OK, "Lista encontrada", data: categories);
+            return new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "Lista encontrada");
         }
         else
         {
