@@ -15,6 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Endpoints\Categoria\Handlers\GETcategorias.cs" />
+    <Compile Remove="Endpoints\Categoria\Handlers\PATCHcategorias.cs" />
+    <Compile Remove="Endpoints\Categoria\Handlers\POSTcageorias.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="System.Data.Odbc" Version="8.0.1" />

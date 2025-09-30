@@ -3,6 +3,9 @@ using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using E_commerce.Endpoints.Categoria.Handlers;
+using System.Net;
+using Dapper;
 
 namespace E_commerce.Endpoints.Categoria
 {
@@ -20,25 +23,20 @@ namespace E_commerce.Endpoints.Categoria
         [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
-            var query = Categorias.GetAllCategorias();
-            var result = await _categoriaRepository.GetAllAsync(query);
-            return new DataResponse<IEnumerable<Categorias>>(true,200,"Resultado",data:result);
+            var rows = await _categoriaRepository.GetAllAsync(CategoriasQuery.GetAllCategorias); 
+            return new DataResponse<IEnumerable<Categorias>>(true, (int)HttpStatusCode.OK, "Resultado", data: rows);
         }
 
         [HttpGet]
         [Route("getById/{id_categoria}")]
         public async Task<BaseResponse> GetById([FromQuery]int id_categoria)
         {
-            var query = Categorias.GetCategoriaById(id_categoria);
-            var result = await _categoriaRepository.GetByIdAsync(query);
-            if (result != null)
-            {
-                return new DataResponse<Categorias>(true, 200, "Categoria encontrada", data: result);
-            }
-            else
-            {
-                return new BaseResponse(false, 404, "Categoria no encontrada");
-            }
+            var parameters = new DynamicParameters();
+            parameters.Add("p0", id_categoria, System.Data.DbType.Int32);
+            var row = await _categoriaRepository.GetByIdAsync(CategoriasQuery.GetCategoriaById, parameters);
+            return row is null
+                ? new BaseResponse(false, (int)HttpStatusCode.NotFound, "Categoria no encontrada")
+                : new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "Categoria encontrada", data: row);
         }
 
 
@@ -46,33 +44,25 @@ namespace E_commerce.Endpoints.Categoria
         [Route("createCategoria")]
         public async Task<BaseResponse> CreateCategoria([FromBody] Categorias categories)
         {
-            var query = categories.CreateCategoria();
-            var existingCategoria = await _categoriaRepository.AddAsync(query);
-            if (existingCategoria <= 0)
-            {
-                return new BaseResponse(false, 409, "La categoria ya existe");
-            }
-            else
-            {
-                return new BaseResponse(true, 201, "Categoria creada exitosamente");
-            }
+            var parameters = new DynamicParameters();
+            parameters.Add("p0", categories.Nombre);
+            var row = await _categoriaRepository.AddAsync(CategoriasQuery.CreateCategoria, parameters);
+            return row > 0
+                ? new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "Categoria creada")
+                : new BaseResponse(false, (int)HttpStatusCode.Conflict, "La categoria ya existe");
         }
 
         [HttpPatch]
         [Route("UpadateCategoria")]
         public async Task<BaseResponse> UpdateCategoria([FromBody] Categorias categories,int id_categoria,string nombre)
         {
-            var query = categories.UpdateCategoriaById();
-            var existingCategoria = await _categoriaRepository.UpdateAsync(query);
-            if(existingCategoria <= 0)
-            {
-                return new BaseResponse(false, 404, "La categoria no existe");
-            }
-            else
-            {
-                return new BaseResponse(true, 200, "Categoria actualizada exitosamente");
-            }
-               
+            var parameters = new DynamicParameters();
+            parameters.Add("p0", nombre);
+            parameters.Add("p1", id_categoria);
+            var row = await _categoriaRepository.UpdateAsync(CategoriasQuery.UpdateCategoria, parameters);
+            return row > 0
+                ? new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "Categoria actualizada")
+                : new BaseResponse(false, (int)HttpStatusCode.NotFound, "Categoria no encontrada");
         }
     }
 

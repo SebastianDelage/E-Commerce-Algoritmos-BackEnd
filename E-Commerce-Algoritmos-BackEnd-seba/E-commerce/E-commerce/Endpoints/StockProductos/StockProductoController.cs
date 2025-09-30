@@ -53,18 +53,5 @@ namespace E_commerce.Endpoints.StockProductos
             }
         }
 
-        public async Task<BaseResponse> Create([FromBody] StockProducto stock)
-        {
-            var query = stock.CreateStockProducto();
-            var result = await _stockRepository.AddAsync(query);
-            if (result > 0)
-            {
-                return new DataResponse<StockProducto>(true, 200, "Color creado");
-            }
-            else
-            {
-                return new BaseResponse(false, 409, "Color ya existe");
-            }
-        }
     }
 }

@@ -70,13 +70,6 @@ C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritm
 C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\System.Data.Odbc.dll
-C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\freebsd\lib\net8.0\System.Data.Odbc.dll
-C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\illumos\lib\net8.0\System.Data.Odbc.dll
-C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\ios\lib\net8.0\System.Data.Odbc.dll
-C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\linux\lib\net8.0\System.Data.Odbc.dll
-C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\osx\lib\net8.0\System.Data.Odbc.dll
-C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\solaris\lib\net8.0\System.Data.Odbc.dll
-C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\tvos\lib\net8.0\System.Data.Odbc.dll
 C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.Odbc.dll
 C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
@@ -137,3 +130,11 @@ C:\Users\hilet.HILET\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-A
 C:\Users\hilet.HILET\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\obj\Debug\net8.0\E-commerce.csproj.Up2Date
 C:\Users\hilet.HILET\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\obj\Debug\net8.0\E-commerce.genruntimeconfig.cache
 C:\Users\hilet.HILET\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\obj\Debug\net8.0\ref\E-commerce.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\freebsd\lib\net8.0\System.Data.Odbc.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\illumos\lib\net8.0\System.Data.Odbc.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\ios\lib\net8.0\System.Data.Odbc.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\linux\lib\net8.0\System.Data.Odbc.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\osx\lib\net8.0\System.Data.Odbc.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\solaris\lib\net8.0\System.Data.Odbc.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\tvos\lib\net8.0\System.Data.Odbc.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\libman.json

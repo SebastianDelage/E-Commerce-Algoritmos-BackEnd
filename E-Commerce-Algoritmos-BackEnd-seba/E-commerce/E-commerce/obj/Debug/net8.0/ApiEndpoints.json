@@ -217,6 +217,32 @@
   },
   {
     "ContainingType": "E_commerce.Endpoints.DetalleOrden.DetalleOrdenController",
+    "Method": "Create",
+    "RelativePath": "DetalleOrden/CreateDetalleOrden",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "detalleOrden",
+        "Type": "E_commerce.Repository.Models.DetalleOrdenes",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.DetalleOrden.DetalleOrdenController",
     "Method": "GetAll",
     "RelativePath": "DetalleOrden/GetAll",
     "HttpMethod": "GET",
@@ -246,6 +272,37 @@
       {
         "Name": "id_detalle_orden",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.DetalleOrden.DetalleOrdenController",
+    "Method": "UpdateDetalleOrden",
+    "RelativePath": "DetalleOrden/update/{id_detalle_orden}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_detalle_orden",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "detalleOrden",
+        "Type": "E_commerce.Repository.Models.DetalleOrdenes",
         "IsRequired": true
       }
     ],
@@ -292,6 +349,32 @@
       {
         "Name": "id_genero",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Marcas.MarcaController",
+    "Method": "Create",
+    "RelativePath": "Marca/CrateMarca",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "marca",
+        "Type": "E_commerce.Repository.Models.Marca",
         "IsRequired": true
       }
     ],
@@ -436,6 +519,63 @@
     ]
   },
   {
+    "ContainingType": "E_commerce.Endpoints.Ordenes.OrdenController",
+    "Method": "UpdateOrden",
+    "RelativePath": "Orden/update/{id_orden}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_orden",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "orden",
+        "Type": "E_commerce.Repository.Models.Orden",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
+    "Method": "Create",
+    "RelativePath": "Producto/CrateProducto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "producto",
+        "Type": "E_commerce.Repository.Models.Producto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
     "Method": "GetAll",
     "RelativePath": "Producto/GetAll",
@@ -482,6 +622,37 @@
     ]
   },
   {
+    "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
+    "Method": "UpdateProducto",
+    "RelativePath": "Producto/UpdateProducto/{id_producto}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_producto",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "producto",
+        "Type": "E_commerce.Repository.Models.Producto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "E_commerce.Endpoints.StockProductos.StockProductoController",
     "Method": "GetAll",
     "RelativePath": "StockProducto/GetAll",
@@ -512,6 +683,42 @@
       {
         "Name": "id_color",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.StockProductos.StockProductoController",
+    "Method": "UpdateStock",
+    "RelativePath": "StockProducto/updateStock/{id_color}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_stock",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "stock",
+        "Type": "E_commerce.Repository.Models.StockProducto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id_color",
+        "Type": "",
         "IsRequired": true
       }
     ],
