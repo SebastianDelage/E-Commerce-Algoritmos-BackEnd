@@ -2,6 +2,7 @@
 using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
+using E_commerce.Endpoints.DetalleOrden.Handlers;
 
 namespace E_commerce.Endpoints.DetalleOrden
 {
@@ -17,56 +18,52 @@ namespace E_commerce.Endpoints.DetalleOrden
         [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
-            var query = DetalleOrdenes.GetAllDetalleOrden();
-            var result = await _detalleOrdenRepository.GetAllAsync(query);
-            return new DataResponse<IEnumerable<DetalleOrdenes>>(true, 200, "Resultado", data: result);
+            var rows = await _detalleOrdenRepository.GetAllAsync(detalleOrdenQuery.GetAllDetalleOrden);
+            return rows is null
+               ? new DataResponse<IEnumerable<DetalleOrdenes>>(true, 404, "Resultado no encontrado", data: rows)
+               : new DataResponse<IEnumerable<DetalleOrdenes>>(true, 200, "Resultado", data: rows);
         }
         [HttpGet]
         [Route("getById/{id_detalle_orden}")]
         public async Task<BaseResponse> GetById(int id_detalle_orden)
         {
-            var query = DetalleOrdenes.GetDetalleOrdenById(id_detalle_orden);
-            var result = await _detalleOrdenRepository.GetByIdAsync(query);
-            if (result != null)
-            {
-                return new DataResponse<DetalleOrdenes>(true, 200, "Detalle de orden encontrado", data: result);
-            }
-            else
-            {
-                return new BaseResponse(false, 404, "Detalle de orden no encontrado");
-            }
+            var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", id_detalle_orden, System.Data.DbType.Int32);
+            var row = await _detalleOrdenRepository.GetByIdAsync(detalleOrdenQuery.GetDetalleOrdenById, parameters);
+            return row is null
+                ? new BaseResponse(false, 404, "Detalle de orden no encontrado")
+                : new DataResponse<DetalleOrdenes>(true, 200, "Detalle de orden encontrado", data: row);
         }
 
         [HttpPost]
         [Route("CreateDetalleOrden")]
         public async Task<BaseResponse> Create([FromBody] DetalleOrdenes detalleOrden)
         {
-            var query = detalleOrden.CreateDetalleOrden();
-            var result = await _detalleOrdenRepository.AddAsync(query);
-            if (result > 0)
-            {
-                return new DataResponse<DetalleOrdenes>(true, 200, "Detalle de orden creado");
-            }
-            else
-            {
-                return new BaseResponse(false, 409, "Detalle de orden ya existe");
-            }
+            var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", detalleOrden.OrdenId);
+            parameters.Add("p1", detalleOrden.PrecioUnitario);
+            parameters.Add("p2", detalleOrden.Cantidad);
+            parameters.Add("p3", detalleOrden.StockId);
+            var row = await _detalleOrdenRepository.AddAsync(detalleOrdenQuery.CreateDetalleOrden, parameters);
+            return row > 0
+                ? new DataResponse<DetalleOrdenes>(true, 200, "Detalle de orden creado")
+                : new BaseResponse(false, 409, "El detalle de orden ya existe");
         }
 
         [HttpPatch]
         [Route("update/{id_detalle_orden}")]
         public async Task<BaseResponse> UpdateDetalleOrden(int id_detalle_orden, [FromBody] DetalleOrdenes detalleOrden)
         {
-            var query = detalleOrden.UpdateDetalleOrden(id_detalle_orden);
-            var result = await _detalleOrdenRepository.UpdateAsync(query);
-            if (result == 0)
-            {
-                return new BaseResponse(false, 404, "Detalle de orden no encontrado");
-            }
-            else
-            {
-                return new DataResponse <DetalleOrdenes>(true, 200, "Detalle de orden actualizado");
-            }
+            var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", detalleOrden.OrdenId);
+            parameters.Add("p1", detalleOrden.StockId);
+            parameters.Add("p2", detalleOrden.Cantidad);
+            parameters.Add("p3", detalleOrden.PrecioUnitario);
+            parameters.Add("p4", id_detalle_orden);
+            var row = await _detalleOrdenRepository.UpdateAsync(detalleOrdenQuery.UpdateDetalleOrden, parameters);
+            return row > 0
+                ? new DataResponse<DetalleOrdenes>(true, 200, "Detalle de orden actualizado")
+                : new BaseResponse(false, 404, "Detalle de orden no encontrado");
         }
     }
 

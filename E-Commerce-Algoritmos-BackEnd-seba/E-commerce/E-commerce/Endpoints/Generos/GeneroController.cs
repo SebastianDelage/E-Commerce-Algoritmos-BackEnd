@@ -2,6 +2,7 @@
 using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
+using E_commerce.Endpoints.Generos.Handlers;
 
 namespace E_commerce.Endpoints.Generos
 {
@@ -17,25 +18,22 @@ namespace E_commerce.Endpoints.Generos
         [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
-            var query = Genero.GetAllGeneros();
-            var result = await _generoRepository.GetAllAsync(query);
-            return new DataResponse<IEnumerable<Genero>>(true, 200, "Resultado", data: result);
+            var rows = await _generoRepository.GetAllAsync(GeneroQuerys.GetAll);
+            return rows is null
+               ? new DataResponse<IEnumerable<Genero>>(true, 404, "Resultado no encontrado", data: rows)
+               : new DataResponse<IEnumerable<Genero>>(true, 200, "Resultado", data: rows);
         }
 
         [HttpGet]
         [Route("getById/{id_genero}")]
         public async Task<BaseResponse> GetById(int id_genero)
         {
-            var query = Genero.GetGeneroById(id_genero);
-            var result = await _generoRepository.GetByIdAsync(query);
-            if (result != null)
-            {
-                return new DataResponse<Repository.Models.Genero>(true, 200, "Genero encontrado", data: result);
-            }
-            else
-            {
-                return new BaseResponse(false, 404, "Genero no encontrado");
-            }
+            var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", id_genero, System.Data.DbType.Int32);
+            var row = await _generoRepository.GetByIdAsync(GeneroQuerys.GetById, parameters);
+            return row is null
+                ? new BaseResponse(false, 404, "Genero no encontrado")
+                : new DataResponse<Genero>(true, 200, "Genero encontrado", data: row);
         }
     }
 }

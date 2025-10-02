@@ -142,13 +142,6 @@
               "type": "integer",
               "format": "int32"
             }
-          },
-          {
-            "name": "nombre",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "requestBody": {
@@ -231,11 +224,18 @@
         "parameters": [
           {
             "name": "id_color",
-            "in": "path",
-            "required": true,
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "id_color",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -739,6 +739,65 @@
         }
       }
     },
+    "/Marca/update/{id_marca}": {
+      "patch": {
+        "tags": [
+          "Marca"
+        ],
+        "parameters": [
+          {
+            "name": "id_marca",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Marca"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Marca"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Marca"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/Orden/GetAll": {
       "get": {
         "tags": [
@@ -1074,75 +1133,6 @@
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/BaseResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BaseResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BaseResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/StockProducto/GetAll": {
-      "get": {
-        "tags": [
-          "StockProducto"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/BaseResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BaseResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BaseResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/StockProducto/getById/{id_color}": {
-      "get": {
-        "tags": [
-          "StockProducto"
-        ],
-        "parameters": [
-          {
-            "name": "id_color",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK",

@@ -14,24 +14,5 @@
             Nombre = nombre;
             Codigo = codigo;
         }
-        public static string GetAllColores()
-        {
-            return string.Format("SELECT * FROM colores");
-        }
-
-        public static string GetColorById(int id)
-        {
-            return string.Format($"SELECT * FROM colores where color_id ={id}");
-        }
-
-        public string CreateColor()
-        {
-            return string.Format($"INSERT INTO colores (nombre, codigo) VALUES ('{Nombre}', '{Codigo}')");
-        }
-
-        public string UpdateColor()
-        {
-            return string.Format($"UPDATE colores SET nombre = '{Nombre}', codigo = '{Codigo}' WHERE color_id = {ColorId}");
-        }
     }
 }

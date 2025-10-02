@@ -13,14 +13,6 @@
             TalleId = talleId;
             Nombre = nombre;
         }
-        public static string GetAllTalles()
-        {
-            return string.Format("SELECT * FROM talles");
-        }
 
-        public static string GetTalleById(int id)
-        {
-            return string.Format($"SELECT * FROM talles where talle_id ={id}");
-        }
     }
 }

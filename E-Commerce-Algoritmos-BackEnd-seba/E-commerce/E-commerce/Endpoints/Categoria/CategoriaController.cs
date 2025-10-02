@@ -24,7 +24,9 @@ namespace E_commerce.Endpoints.Categoria
         public async Task<BaseResponse> GetAll()
         {
             var rows = await _categoriaRepository.GetAllAsync(CategoriasQuery.GetAllCategorias); 
-            return new DataResponse<IEnumerable<Categorias>>(true, (int)HttpStatusCode.OK, "Resultado", data: rows);
+            return rows is null
+               ? new DataResponse<IEnumerable<Categorias>>(true, (int)HttpStatusCode.NotFound, "Resultado no encontrado", data: rows)
+               : new DataResponse<IEnumerable<Categorias>>(true, (int)HttpStatusCode.OK, "Resultado", data: rows);
         }
 
         [HttpGet]
@@ -54,10 +56,10 @@ namespace E_commerce.Endpoints.Categoria
 
         [HttpPatch]
         [Route("UpadateCategoria")]
-        public async Task<BaseResponse> UpdateCategoria([FromBody] Categorias categories,int id_categoria,string nombre)
+        public async Task<BaseResponse> UpdateCategoria([FromBody] Categorias categories,int id_categoria)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("p0", nombre);
+            parameters.Add("p0", categories.Nombre);
             parameters.Add("p1", id_categoria);
             var row = await _categoriaRepository.UpdateAsync(CategoriasQuery.UpdateCategoria, parameters);
             return row > 0

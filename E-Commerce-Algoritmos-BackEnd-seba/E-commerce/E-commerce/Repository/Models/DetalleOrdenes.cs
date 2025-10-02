@@ -19,24 +19,6 @@
             PrecioUnitario = precioUnitario;
         }
 
-        public static string GetAllDetalleOrden()
-        {
-            return string.Format("SELECT * FROM detalle_orden");
-        }
 
-        public static string GetDetalleOrdenById(int id)
-        {
-            return string.Format($"SELECT * FROM detalle_orden where detalle_orden_id ={id}");
-        }
-
-        public  string CreateDetalleOrden()
-        {
-            return string.Format($"INSERT INTO detalle_orden (stock_id, cantidad, precio_unitario) VALUES ( {StockId}, {Cantidad}, {PrecioUnitario})");
-        }
-
-        public string UpdateDetalleOrden(int id)
-        {
-            return string.Format($"UPDATE detalle_orden SET orden_id = {OrdenId}, stock_id = {StockId}, cantidad = {Cantidad}, precio_unitario = {PrecioUnitario} WHERE detalle_orden_id = {id}");
-        }
     }
 }

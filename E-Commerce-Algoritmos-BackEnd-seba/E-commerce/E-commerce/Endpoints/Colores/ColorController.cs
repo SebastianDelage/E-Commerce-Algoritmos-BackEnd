@@ -2,6 +2,8 @@
 using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
+using E_commerce.Endpoints.Colores.Handlers;
+using System.Net;
 
 namespace E_commerce.Endpoints.Colores
 {
@@ -17,42 +19,37 @@ namespace E_commerce.Endpoints.Colores
         [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
-            var query = Color.GetAllColores();
-            var result = await _colorRepository.GetAllAsync(query);
-            return new DataResponse<IEnumerable<Color>>(true, 200, "Resultado", data: result);
+            var rows = await _colorRepository.GetAllAsync(ColoresQuery.GetAllColores);
+            return rows is null
+                ? new DataResponse<IEnumerable<Color>>(true, (int)HttpStatusCode.NotFound, "No se encontro", data: rows)
+                : new DataResponse<IEnumerable<Color>>(true, (int)HttpStatusCode.OK, "Resultado", data: rows);
+
         }
 
         [HttpGet]
         [Route("getById/{id_color}")]
-        public async Task<BaseResponse> GetById(int id_color)
+        public async Task<BaseResponse> GetById([FromQuery]int id_color)
         {
-            var query = Color.GetColorById(id_color);
-            var result = await _colorRepository.GetByIdAsync(query);
-            if (result != null)
-            {
-                return new DataResponse<Color>(true, 200, "Color encontrado", data: result);
-            }
-            else
-            {
-                return new BaseResponse(false, 404, "Color no encontrado");
-            }
+            var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", id_color, System.Data.DbType.Int32);
+            var row = await _colorRepository.GetByIdAsync(ColoresQuery.GetColorById, parameters);
+            return row is null
+                ? new BaseResponse(false, (int)HttpStatusCode.NotFound, "Color no encontrado")
+                : new DataResponse<Color>(true, (int)HttpStatusCode.OK, "Color encontrado", data: row);
         }
 
         [HttpPatch]
         [Route("update/{id_color}")]
         public async Task<BaseResponse> UpdateColor(int id_color, [FromBody] Color colors)
         {
-            var query = colors.UpdateColor();
-            var result = await _colorRepository.UpdateAsync(query);
-
-            if (result <= 0)
-            {
-                return new BaseResponse(false, 404, "Color no encontrado");
-            }
-            else
-            {
-                return new DataResponse<List<Color>>(true, 200, "Color actualizado");
-            }
+            var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", colors.Nombre);
+            parameters.Add("p1", colors.Codigo);
+            parameters.Add("p2", id_color);
+            var row = await _colorRepository.UpdateAsync(ColoresQuery.UpdateColor, parameters);
+            return row > 0
+                ? new DataResponse<Color>(true, (int)HttpStatusCode.OK, "Color actualizado")
+                : new BaseResponse(false, (int)HttpStatusCode.NotFound, "Color no encontrado"); 
 
         }
 
@@ -61,16 +58,13 @@ namespace E_commerce.Endpoints.Colores
 
         public async Task<BaseResponse> CreateColor([FromBody] Color colors)
         {
-            var query = colors.CreateColor();
-            var result = await _colorRepository.AddAsync(query);
-            if (result <= 0)
-            {
-                return new BaseResponse(false, 409, "Color ya existe");
-            }
-            else
-            {
-                return new DataResponse<List<Color>>(true, 200, "Color creado");
-            }
+           var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", colors.Nombre);
+            parameters.Add("p1", colors.Codigo);
+            var row = await _colorRepository.AddAsync(ColoresQuery.CreateColor, parameters);
+            return row > 0
+                ? new DataResponse<Color>(true, (int)HttpStatusCode.OK, "Color creado")
+                : new BaseResponse(false, (int)HttpStatusCode.Conflict, "El color ya existe");
         }
     }
 }

@@ -21,14 +21,5 @@
             Telefono = telefono;
         }
 
-        public static string GetAllUsuarios()
-        {
-            return string.Format("SELECT * FROM usuarios");
-        }
-
-        public static string GetUsuarioById(int id)
-        {
-            return string.Format($"SELECT * FROM usuarios where usuario_id ={id}");
-        }
     }
 }

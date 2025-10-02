@@ -13,15 +13,5 @@
             Nombre = nombre;
         }
 
-        public static string GetAllGeneros()
-        {
-            return string.Format("SELECT * FROM generos");
-        }
-
-        public static string GetGeneroById(int id)
-        {
-            return string.Format($"SELECT * FROM generos where genero_id ={id}");
-        }
-
     }
 }

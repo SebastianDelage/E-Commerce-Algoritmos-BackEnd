@@ -26,8 +26,4 @@
     <PackageReference Include="System.Data.Odbc" Version="8.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Endpoints\Productos\Request\" />
-  </ItemGroup>
-
 </Project>

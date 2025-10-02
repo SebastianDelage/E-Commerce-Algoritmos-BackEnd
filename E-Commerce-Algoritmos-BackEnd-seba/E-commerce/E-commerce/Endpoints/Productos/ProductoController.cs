@@ -2,6 +2,7 @@
 using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
+using E_commerce.Endpoints.Productos.Handlers;
 
 
 namespace E_commerce.Endpoints.Productos
@@ -20,58 +21,55 @@ namespace E_commerce.Endpoints.Productos
         [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
-            var query = Producto.GetAllProductos();
-            var result = await _personaRepository.GetAllAsync(query);
-
-            return new DataResponse<IEnumerable<Producto>>(true, 200, "Resultado", data: result);
+            var rows = await _personaRepository.GetAllAsync(ProductoQuery.GetAll);
+            return rows is null
+               ? new DataResponse<IEnumerable<Producto>>(true, 404, "Resultado no encontrado", data: rows)
+               : new DataResponse<IEnumerable<Producto>>(true, 200, "Resultado", data: rows);
         }
 
         [HttpGet]
         [Route("getById/{id_producto}")]
         public async Task<BaseResponse> GetById(int id_producto)
         {
-            var query = Producto.GetProductoById(id_producto);
-            var result = await _personaRepository.GetByIdAsync(query);
-            if (result != null)
-            {
-                return new DataResponse<Producto>(true, 200, "Producto encontrado", data: result);
-            }
-            else
-            {
-                return new BaseResponse(false, 404, "Producto no encontrado");
-            }
+            var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", id_producto, System.Data.DbType.Int32);
+            var row = await _personaRepository.GetByIdAsync(ProductoQuery.GetById, parameters);
+            return row is null
+                ? new BaseResponse(false, 404, "Producto no encontrado")
+                : new DataResponse<Producto>(true, 200, "Producto encontrado", data: row);
         }
 
         [HttpPost]
         [Route("CrateProducto")]
         public async Task<BaseResponse> Create([FromBody] Producto producto)
         {
-            var query = producto.CreateProducto();
-            var result = await _personaRepository.AddAsync(query);
-            if (result > 0)
-            {
-                return new DataResponse<Producto>(true, 200, "Producto creado");
-            }
-            else
-            {
-                return new BaseResponse(false, 409, "Producto ya existe");
-            }
+            var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", producto.Nombre);
+            parameters.Add("p1", producto.Descripcion);
+            parameters.Add("p2", producto.Precio);
+            parameters.Add("p3", producto.MarcaId);
+            parameters.Add("p4", producto.GeneroId);
+            var row = await _personaRepository.AddAsync(ProductoQuery.CreateProducto, parameters);
+            return row > 0
+                ? new DataResponse<Producto>(true, 200, "Producto creado")
+                : new BaseResponse(false, 409, "El producto ya existe");
         }
 
         [HttpPatch]
         [Route ("UpdateProducto/{id_producto}")]
         public async Task<BaseResponse> UpdateProducto(int id_producto, [FromBody] Producto producto)
         {
-            var query = producto.UpdateProducto(id_producto);
-            var result = await _personaRepository.UpdateAsync(query);
-            if (result <= 0)
-            {
-                return new BaseResponse(false, 404, "Producto no encontrado");
-            }
-            else
-            {
-                return new DataResponse<List<Producto>>(true, 200, "Producto actualizado");
-            }
+            var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", producto.Nombre);
+            parameters.Add("p1", producto.Descripcion);
+            parameters.Add("p2", producto.Precio);
+            parameters.Add("p3", producto.MarcaId);
+            parameters.Add("p4", producto.GeneroId);
+            parameters.Add("p5", id_producto);
+            var row = await _personaRepository.UpdateAsync(ProductoQuery.UpdateProducto, parameters);
+            return row > 0
+                ? new DataResponse<Producto>(true, 200, "Producto actualizado")
+                : new BaseResponse(false, 404, "Producto no encontrado");
         }
     }
 }

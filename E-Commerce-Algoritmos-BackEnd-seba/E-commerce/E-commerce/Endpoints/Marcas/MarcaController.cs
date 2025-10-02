@@ -2,6 +2,7 @@
 using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
+using E_commerce.Endpoints.Marcas.Handlers;
 
 namespace E_commerce.Endpoints.Marcas
 {
@@ -18,41 +19,48 @@ namespace E_commerce.Endpoints.Marcas
         [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
         {
-            var query = Marca.GetAllMarcas();
-            var result = await _marcaRepository.GetAllAsync(query);
-            return new DataResponse<IEnumerable<Marca>>(true, 200, "Resultado", data: result);
+            var rows = await _marcaRepository.GetAllAsync(MarcaQuery.GetAll);
+            return rows is null
+               ? new DataResponse<IEnumerable<Marca>>(true, 404, "Resultado no encontrado", data: rows)
+               : new DataResponse<IEnumerable<Marca>>(true, 200, "Resultado", data: rows);
         }
 
         [HttpGet]
         [Route("getById/{id_genero}")]
         public async Task<BaseResponse> GetById(int id_marca)
-        {
-            var query = Marca.GetMarcaById(id_marca);
-            var result = await _marcaRepository.GetByIdAsync(query);
-            if (result != null)
-            {
-                return new DataResponse<Marca>(true, 200, "Genero encontrado", data: result);
-            }
-            else
-            {
-                return new BaseResponse(false, 404, "Genero no encontrado");
-            }
+        { 
+            var parameter = new Dapper.DynamicParameters();
+            parameter.Add("p0", id_marca, System.Data.DbType.Int32);
+            var row = await _marcaRepository.GetByIdAsync(MarcaQuery.GetById, parameter);
+            return row is null
+                ? new BaseResponse(false, 404, "Marca no encontrada")
+                : new DataResponse<Marca>(true, 200, "Marca encontrada", data: row);
+
         }
 
         [HttpPost]
         [Route("CrateMarca")]
         public async Task<BaseResponse> Create([FromBody] Marca marca)
         {
-            var query = marca.CreateMarca();
-            var result = await _marcaRepository.AddAsync(query);
-            if (result > 0)
-            {
-                return new DataResponse<Marca>(true, 200, "Marca creada");
-            }
-            else
-            {
-                return new BaseResponse(false, 409, "Marca ya existe");
-            }
+           var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", marca.Nombre);
+            var row = await _marcaRepository.AddAsync(MarcaQuery.CreateMarca, parameters);
+            return row > 0
+                ? new DataResponse<Marca>(true, 200, "Marca creada")
+                : new BaseResponse(false, 409, "La marca ya existe");
+        }
+
+        [HttpPatch]
+        [Route("update/{id_marca}")]
+        public async Task<BaseResponse> Update(int id_marca, [FromBody] Marca marca)
+        {
+            var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", marca.Nombre);
+            parameters.Add("p1", id_marca);
+            var row = await _marcaRepository.UpdateAsync(MarcaQuery.UpdateMarca, parameters);
+            return row > 0
+                ? new DataResponse<Marca>(true, 200, "Marca actualizada")
+                : new BaseResponse(false, 404, "Marca no encontrada");
         }
     }
 }

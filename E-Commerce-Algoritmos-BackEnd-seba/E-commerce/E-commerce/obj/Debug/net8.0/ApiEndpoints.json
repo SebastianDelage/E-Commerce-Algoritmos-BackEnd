@@ -93,11 +93,6 @@
         "Name": "id_categoria",
         "Type": "System.Int32",
         "IsRequired": false
-      },
-      {
-        "Name": "nombre",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -169,6 +164,11 @@
       {
         "Name": "id_color",
         "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id_color",
+        "Type": "",
         "IsRequired": true
       }
     ],
@@ -442,6 +442,37 @@
     ]
   },
   {
+    "ContainingType": "E_commerce.Endpoints.Marcas.MarcaController",
+    "Method": "Update",
+    "RelativePath": "Marca/update/{id_marca}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_marca",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "marca",
+        "Type": "E_commerce.Repository.Models.Marca",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "E_commerce.Endpoints.Ordenes.OrdenController",
     "Method": "Create",
     "RelativePath": "Orden/CreateOrden",
@@ -637,52 +668,6 @@
       {
         "Name": "producto",
         "Type": "E_commerce.Repository.Models.Producto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "E_commerce.Responses.BaseResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "E_commerce.Endpoints.StockProductos.StockProductoController",
-    "Method": "GetAll",
-    "RelativePath": "StockProducto/GetAll",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "E_commerce.Responses.BaseResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "E_commerce.Endpoints.StockProductos.StockProductoController",
-    "Method": "GetById",
-    "RelativePath": "StockProducto/getById/{id_color}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id_color",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

@@ -2,6 +2,7 @@
 using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
+using E_commerce.Endpoints.Ordenes.Handlers;
 
 namespace E_commerce.Endpoints.Ordenes
 {
@@ -17,58 +18,55 @@ namespace E_commerce.Endpoints.Ordenes
 		[Route("GetAll")]
 		public async Task<BaseResponse> GetAll()
 		{
-			var query = Orden.GetAllOrdenes();
-			var result = await _ordenRepository.GetAllAsync(query);
-			return new DataResponse<IEnumerable<Orden>>(true, 200, "Resultado", data: result);
-		}
+			var rows = await _ordenRepository.GetAllAsync(OrdenesQuery.GetAllOrdenes);
+			return rows is null
+				? new DataResponse<IEnumerable<Orden>>(true, 404, "Resultado no encontrado", data: rows)
+				: new DataResponse<IEnumerable<Orden>>(true, 200, "Resultado", data: rows);
+
+        }
 		[HttpGet]
 		[Route("getById/{id_orden}")]
 		public async Task<BaseResponse> GetById([FromQuery] int id_color)
 		{
-			var query = Orden.GetOrdenById(id_color);
-			var result = await _ordenRepository.GetByIdAsync(query);
-			if (result != null)
-			{
-				return new DataResponse<Orden>(true, 200, "Orden encontrada", data: result);
-			}
-			else
-			{
-				return new BaseResponse(false, 404, "Orden no encontrada");
-			}
+			var parameters = new Dapper.DynamicParameters();
+			parameters.Add("p0", id_color, System.Data.DbType.Int32);
+			var row = await _ordenRepository.GetByIdAsync(OrdenesQuery.GetOrdenById, parameters);
+			return row is null
+				? new BaseResponse(false, 404, "Orden no encontrada")
+				: new DataResponse<Orden>(true, 200, "Orden encontrada", data: row);
 
-		}
+        }
 
 		[HttpPost]
 		[Route("CreateOrden")]
 		public async Task<BaseResponse> Create([FromBody] Orden orden)
 		{
-			var query = orden.InsertOrden();
-			var result = await _ordenRepository.AddAsync(query);
-			if (result > 0)
-			{
-				return new DataResponse<Orden>(true, 200, "Orden creada");
-			}
-			else
-			{
-				return new BaseResponse(false, 409, "Orden ya existe");
-			}
-		}
+			var parameters = new Dapper.DynamicParameters();	
+			parameters.Add("p0", orden.UsuarioId);
+			parameters.Add("p1", orden.FechaOrden);
+			parameters.Add("p2", orden.Estado);
+			parameters.Add("p3", orden.Total);
+			var row = await _ordenRepository.AddAsync(OrdenesQuery.CreateOrden, parameters);
+			return row > 0
+				? new DataResponse<Orden>(true, 200, "Orden creada")
+				: new BaseResponse(false, 409, "La orden ya existe");
+        }
 
 		[HttpPatch]
 		[Route("update/{id_orden}")]
 		public async Task<BaseResponse> UpdateOrden(int id_orden, [FromBody] Orden orden)
 		{
-			var query = orden.UpdateOrden(id_orden);
-			var result = await _ordenRepository.UpdateAsync(query);
-			if (result == 0)
-			{
-				return new BaseResponse(false, 404, "Orden no encontrada");
-			}
-			else
-			{
-				return new DataResponse<List<Orden>>(true, 200, "Orden actualizada");
-			}
+			var parameters = new Dapper.DynamicParameters();
+			parameters.Add("p0", orden.UsuarioId);
+			parameters.Add("p1", orden.FechaOrden);
+			parameters.Add("p2", orden.Estado);
+			parameters.Add("p3", orden.Total);
+			parameters.Add("p4", id_orden);
+			var row = await _ordenRepository.UpdateAsync(OrdenesQuery.UpdateOrden, parameters);
+			return row > 0
+				? new DataResponse<Orden>(true, 200, "Orden actualizada")
+				: new BaseResponse(false, 409, "La orden no existe");
 
-		}
+        }
 	}
 }
