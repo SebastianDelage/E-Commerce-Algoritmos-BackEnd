@@ -2,14 +2,14 @@
 {
     public class Genero
     {
-        public int GeneroId { get; set; }
+        public int genero_id { get; set; }
         public string Nombre { get; set; }
 
         public Genero() { }
 
         public Genero(int generoId, string nombre)
         {
-            GeneroId = generoId;
+            genero_id = generoId;
             Nombre = nombre;
         }
 

@@ -2,7 +2,7 @@
 {
     public class StockProducto
     {
-        public int StockId { get; set; }
+        public int stock_id { get; set; }
         public int ProductoId { get; set; }
         public int TallesId { get; set; }
         public int ColorId { get; set; }
@@ -12,7 +12,7 @@
 
         public StockProducto(int stockId, int productoId, int talleId, int colorId, int cantidad)
         {
-            StockId = stockId;
+            stock_id = stockId;
             ProductoId = productoId;
             TallesId = talleId;
             ColorId = colorId;

@@ -6,7 +6,7 @@ namespace E_commerce.Repository.Models
     {
 
         //las propiedades deben tener el mismo nombre que las columnas de la base de datos
-        public int Categoria_id{ get; set; }
+        public int categoria_id{ get; set; }
         public string Nombre { get; set; }
 
 
@@ -14,7 +14,7 @@ namespace E_commerce.Repository.Models
 
         public Categorias(int categoriaId, string nombre)
         {
-            Categoria_id = categoriaId;
+            categoria_id = categoriaId;
             Nombre = nombre;
         }
     }

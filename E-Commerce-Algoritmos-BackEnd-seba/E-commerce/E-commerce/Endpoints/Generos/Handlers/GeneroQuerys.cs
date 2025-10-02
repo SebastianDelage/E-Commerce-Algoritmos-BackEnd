@@ -4,6 +4,9 @@
     {
         public const string GetAll = "SELECT * FROM generos";
 
-        public const string GetById = "SELECT genero_id AS GeneroId, nombre AS Nombre FROM generos WHERE genero_id = ?";
+       public static string GetById(int id)
+        {
+            return string.Format("SELECT * FROM generos WHERE genero_id = {id}", id);
+        }
     }
 }

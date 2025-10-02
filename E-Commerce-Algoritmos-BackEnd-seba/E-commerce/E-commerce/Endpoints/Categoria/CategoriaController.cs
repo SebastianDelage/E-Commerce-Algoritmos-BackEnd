@@ -30,12 +30,12 @@ namespace E_commerce.Endpoints.Categoria
         }
 
         [HttpGet]
-        [Route("getById/{id_categoria}")]
-        public async Task<BaseResponse> GetById([FromQuery]int id_categoria)
+        [Route("getById")]
+        public async Task<BaseResponse> GetById([FromQuery]int categoria_id)
         {
-            var parameters = new DynamicParameters();
-            parameters.Add("p0", id_categoria, System.Data.DbType.Int32);
-            var row = await _categoriaRepository.GetByIdAsync(CategoriasQuery.GetCategoriaById, parameters);
+            //var parameters = new DynamicParameters();
+            //parameters.Add("p0", categoria_id, System.Data.DbType.Int32);
+            var row = await _categoriaRepository.GetByIdAsync(CategoriasQuery.GetCategoriaById(categoria_id));
             return row is null
                 ? new BaseResponse(false, (int)HttpStatusCode.NotFound, "Categoria no encontrada")
                 : new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "Categoria encontrada", data: row);
@@ -61,7 +61,7 @@ namespace E_commerce.Endpoints.Categoria
             var parameters = new DynamicParameters();
             parameters.Add("p0", categories.Nombre);
             parameters.Add("p1", id_categoria);
-            var row = await _categoriaRepository.UpdateAsync(CategoriasQuery.UpdateCategoria, parameters);
+            var row = await _categoriaRepository.UpdateAsync(CategoriasQuery.UpdateCategoria);
             return row > 0
                 ? new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "Categoria actualizada")
                 : new BaseResponse(false, (int)HttpStatusCode.NotFound, "Categoria no encontrada");

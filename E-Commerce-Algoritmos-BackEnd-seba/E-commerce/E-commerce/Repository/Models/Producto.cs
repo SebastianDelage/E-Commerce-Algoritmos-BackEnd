@@ -4,7 +4,7 @@ namespace E_commerce.Repository.Models
 {
     public class Producto
     {
-        public int ProductoId { get; set; }
+        public int producto_id { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public float Precio { get; set; }
@@ -21,7 +21,7 @@ namespace E_commerce.Repository.Models
             this.MarcaId = marca_id;
             this.GeneroId = genero_id;
             this.ImagenUrl = imagenURL;
-            this.ProductoId = producto_id;
+            this.producto_id = producto_id;
         }
 
         public Producto()

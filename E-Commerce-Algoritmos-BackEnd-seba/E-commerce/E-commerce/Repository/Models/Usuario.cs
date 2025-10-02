@@ -2,7 +2,7 @@
 {
     public class Usuario
     {
-        public int UsuarioId { get; set; }
+        public int usuario_id { get; set; }
         public string Nombre { get; set; }
         public string Email { get; set; }
         public string Contraseña { get; set; }
@@ -13,7 +13,7 @@
 
         public Usuario(int usuarioId, string nombre, string email, string contraseña, string direccion, string telefono)
         {
-            UsuarioId = usuarioId;
+            usuario_id = usuarioId;
             Nombre = nombre;
             Email = email;
             Contraseña = contraseña;

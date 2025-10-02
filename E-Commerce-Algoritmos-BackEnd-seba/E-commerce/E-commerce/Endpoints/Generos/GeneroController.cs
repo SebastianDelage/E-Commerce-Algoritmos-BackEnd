@@ -25,12 +25,10 @@ namespace E_commerce.Endpoints.Generos
         }
 
         [HttpGet]
-        [Route("getById/{id_genero}")]
+        [Route("getById")]
         public async Task<BaseResponse> GetById(int id_genero)
         {
-            var parameters = new Dapper.DynamicParameters();
-            parameters.Add("p0", id_genero, System.Data.DbType.Int32);
-            var row = await _generoRepository.GetByIdAsync(GeneroQuerys.GetById, parameters);
+            var row = await _generoRepository.GetByIdAsync(GeneroQuerys.GetById(id_genero);
             return row is null
                 ? new BaseResponse(false, 404, "Genero no encontrado")
                 : new DataResponse<Genero>(true, 200, "Genero encontrado", data: row);

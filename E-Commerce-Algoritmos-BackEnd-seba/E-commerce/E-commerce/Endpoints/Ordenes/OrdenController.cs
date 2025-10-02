@@ -25,12 +25,10 @@ namespace E_commerce.Endpoints.Ordenes
 
         }
 		[HttpGet]
-		[Route("getById/{id_orden}")]
-		public async Task<BaseResponse> GetById([FromQuery] int id_color)
+		[Route("getById")]
+		public async Task<BaseResponse> GetById([FromQuery] int orden_id)
 		{
-			var parameters = new Dapper.DynamicParameters();
-			parameters.Add("p0", id_color, System.Data.DbType.Int32);
-			var row = await _ordenRepository.GetByIdAsync(OrdenesQuery.GetOrdenById, parameters);
+			var row = await _ordenRepository.GetByIdAsync(OrdenesQuery.GetOrdenById(orden_id));
 			return row is null
 				? new BaseResponse(false, 404, "Orden no encontrada")
 				: new DataResponse<Orden>(true, 200, "Orden encontrada", data: row);
@@ -53,7 +51,7 @@ namespace E_commerce.Endpoints.Ordenes
         }
 
 		[HttpPatch]
-		[Route("update/{id_orden}")]
+		[Route("updateOrden")]
 		public async Task<BaseResponse> UpdateOrden(int id_orden, [FromBody] Orden orden)
 		{
 			var parameters = new Dapper.DynamicParameters();

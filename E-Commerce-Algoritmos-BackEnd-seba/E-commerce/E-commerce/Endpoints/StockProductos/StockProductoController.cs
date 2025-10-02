@@ -26,8 +26,8 @@ namespace E_commerce.Endpoints.StockProductos
         }
 
         [HttpGet]
-        [Route("getById/{id_stock}")]
-        public async Task<BaseResponse> GetById(int id_stock)
+        [Route("getById")]
+        public async Task<BaseResponse> GetById([FromQuery] int id_stock)
         {
             var parameters = new Dapper.DynamicParameters();
             parameters.Add("p0", id_stock, System.Data.DbType.Int32);
@@ -38,7 +38,7 @@ namespace E_commerce.Endpoints.StockProductos
         }
 
         [HttpPatch]
-        [Route("updateStock/{id_color}")]
+        [Route("updateStock")]
         public async Task<BaseResponse> UpdateStock(int id_stock, [FromBody] StockProducto stock)
         {
            var parameters = new Dapper.DynamicParameters();

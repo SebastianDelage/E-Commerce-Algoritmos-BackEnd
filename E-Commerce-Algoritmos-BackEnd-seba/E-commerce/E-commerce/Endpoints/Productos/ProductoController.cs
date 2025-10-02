@@ -3,6 +3,7 @@ using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
 using E_commerce.Endpoints.Productos.Handlers;
+using System.Net;
 
 
 namespace E_commerce.Endpoints.Productos
@@ -28,15 +29,25 @@ namespace E_commerce.Endpoints.Productos
         }
 
         [HttpGet]
-        [Route("getById/{id_producto}")]
-        public async Task<BaseResponse> GetById(int id_producto)
+        [Route("getById")]
+        public async Task<BaseResponse> GetById([FromQuery] int id_producto)
         {
-            var parameters = new Dapper.DynamicParameters();
-            parameters.Add("p0", id_producto, System.Data.DbType.Int32);
-            var row = await _personaRepository.GetByIdAsync(ProductoQuery.GetById, parameters);
+   
+            var row = await _personaRepository.GetByIdAsync(ProductoQuery.GetAllById(id_producto));
             return row is null
                 ? new BaseResponse(false, 404, "Producto no encontrado")
                 : new DataResponse<Producto>(true, 200, "Producto encontrado", data: row);
+        }
+
+        [HttpGet]
+        [Route("GetByCategora")]
+        public async Task<BaseResponse> GetByCategoria(int categoriaId)
+        {
+
+            var row = await _personaRepository.GetByIdAsync(ProductoQuery.GetAllById(categoriaId));
+            return row is null
+                ? new BaseResponse(false, (int)HttpStatusCode.NotFound, "Producto no encontrado")
+                : new DataResponse<Producto>(true, (int)HttpStatusCode.OK, "Producto encontrado", data: row);
         }
 
         [HttpPost]
@@ -56,7 +67,7 @@ namespace E_commerce.Endpoints.Productos
         }
 
         [HttpPatch]
-        [Route ("UpdateProducto/{id_producto}")]
+        [Route ("UpdateProducto")]
         public async Task<BaseResponse> UpdateProducto(int id_producto, [FromBody] Producto producto)
         {
             var parameters = new Dapper.DynamicParameters();

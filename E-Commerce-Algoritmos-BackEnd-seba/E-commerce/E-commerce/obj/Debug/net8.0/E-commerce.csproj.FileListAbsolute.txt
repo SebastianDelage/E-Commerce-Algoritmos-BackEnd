@@ -138,3 +138,4 @@ C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritm
 C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\solaris\lib\net8.0\System.Data.Odbc.dll
 C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\runtimes\tvos\lib\net8.0\System.Data.Odbc.dll
 C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\libman.json
+C:\Users\hilet.HILET\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\libman.json

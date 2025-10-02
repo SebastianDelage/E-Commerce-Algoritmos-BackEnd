@@ -24,8 +24,8 @@ namespace E_commerce.Endpoints.Usuarios
                : new DataResponse<IEnumerable<Usuario>>(true, 200, "Resultado", data: rows);
         }
         [HttpGet]
-        [Route("getById/{id_usuario}")]
-        public async Task<BaseResponse> GetById(int id_usuario)
+        [Route("getById")]
+        public async Task<BaseResponse> GetById([FromQuery]int id_usuario)
         {
             var parameters = new Dapper.DynamicParameters();
             parameters.Add("p0", id_usuario, System.Data.DbType.Int32);
@@ -52,7 +52,7 @@ namespace E_commerce.Endpoints.Usuarios
         }
 
         [HttpPatch]
-        [Route("UpdateUsuario/{id_usuario}")]
+        [Route("UpdateUsuario")]
         public async Task<BaseResponse> UpdateUsuario(int id_usuario, [FromBody] Usuario usuario)
         {
             var parameters = new Dapper.DynamicParameters();

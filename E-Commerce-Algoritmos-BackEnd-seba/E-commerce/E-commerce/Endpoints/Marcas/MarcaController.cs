@@ -26,12 +26,11 @@ namespace E_commerce.Endpoints.Marcas
         }
 
         [HttpGet]
-        [Route("getById/{id_genero}")]
+        [Route("getById")]
         public async Task<BaseResponse> GetById(int id_marca)
         { 
-            var parameter = new Dapper.DynamicParameters();
-            parameter.Add("p0", id_marca, System.Data.DbType.Int32);
-            var row = await _marcaRepository.GetByIdAsync(MarcaQuery.GetById, parameter);
+
+            var row = await _marcaRepository.GetByIdAsync(MarcaQuery.GetMarcaById(id_marca));
             return row is null
                 ? new BaseResponse(false, 404, "Marca no encontrada")
                 : new DataResponse<Marca>(true, 200, "Marca encontrada", data: row);
@@ -51,7 +50,7 @@ namespace E_commerce.Endpoints.Marcas
         }
 
         [HttpPatch]
-        [Route("update/{id_marca}")]
+        [Route("updateMarca")]
         public async Task<BaseResponse> Update(int id_marca, [FromBody] Marca marca)
         {
             var parameters = new Dapper.DynamicParameters();

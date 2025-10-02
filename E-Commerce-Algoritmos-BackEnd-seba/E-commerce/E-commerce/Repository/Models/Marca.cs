@@ -2,7 +2,7 @@
 {
     public class Marca
     {
-        public int MarcaId { get; set; }
+        public int marca_id { get; set; }
         public string Nombre {  get; set; }
     
         
@@ -10,7 +10,7 @@
 
         public Marca(int marcaId, string nombre)
         {
-            MarcaId = marcaId;
+            marca_id = marcaId;
             Nombre = nombre;
         }
 

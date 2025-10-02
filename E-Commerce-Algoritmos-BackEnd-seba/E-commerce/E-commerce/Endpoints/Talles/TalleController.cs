@@ -26,8 +26,8 @@ namespace E_commerce.Endpoints.Talles
 		}
 
 		[HttpGet]
-		[Route("getById/{id_talle}")]
-		public async Task<BaseResponse> GetById(int id_talle)
+		[Route("getById")]
+		public async Task<BaseResponse> GetById([FromQuery]int id_talle)
 		{
 			var parameters = new Dapper.DynamicParameters();
 			parameters.Add("p0", id_talle, System.Data.DbType.Int32);
@@ -49,7 +49,7 @@ namespace E_commerce.Endpoints.Talles
 				: new BaseResponse(false, 409, "El talle ya existe");
         }
 		[HttpPatch]
-		[Route("update/{id_talle}")]
+		[Route("updateTalle")]
 		public async Task<BaseResponse> Update(int id_talle, [FromBody] Talle talle)
 		{
 			var parameters = new Dapper.DynamicParameters();

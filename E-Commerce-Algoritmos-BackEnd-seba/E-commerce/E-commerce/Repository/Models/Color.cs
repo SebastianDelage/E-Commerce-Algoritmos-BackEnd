@@ -2,7 +2,7 @@
 {
     public class Color
     {
-        public int ColorId { get; set; }
+        public int color_id { get; set; }
         public string Nombre { get; set; }
         public string Codigo { get; set; }
 
@@ -10,7 +10,7 @@
 
         public Color(int colorId, string nombre, string codigo)
         {
-            ColorId = colorId;
+            color_id = colorId;
             Nombre = nombre;
             Codigo = codigo;
         }

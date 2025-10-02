@@ -27,19 +27,18 @@ namespace E_commerce.Endpoints.Colores
         }
 
         [HttpGet]
-        [Route("getById/{id_color}")]
+        [Route("getById")]
         public async Task<BaseResponse> GetById([FromQuery]int id_color)
         {
-            var parameters = new Dapper.DynamicParameters();
-            parameters.Add("p0", id_color, System.Data.DbType.Int32);
-            var row = await _colorRepository.GetByIdAsync(ColoresQuery.GetColorById, parameters);
+
+            var row = await _colorRepository.GetByIdAsync(ColoresQuery.GetColorById(id_color));
             return row is null
                 ? new BaseResponse(false, (int)HttpStatusCode.NotFound, "Color no encontrado")
                 : new DataResponse<Color>(true, (int)HttpStatusCode.OK, "Color encontrado", data: row);
         }
 
         [HttpPatch]
-        [Route("update/{id_color}")]
+        [Route("update")]
         public async Task<BaseResponse> UpdateColor(int id_color, [FromBody] Color colors)
         {
             var parameters = new Dapper.DynamicParameters();
