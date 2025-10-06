@@ -156,6 +156,32 @@
   },
   {
     "ContainingType": "E_commerce.Endpoints.Colores.ColorController",
+    "Method": "DeleteColor",
+    "RelativePath": "Color/DeleteColor",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "color_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Colores.ColorController",
     "Method": "GetAll",
     "RelativePath": "Color/GetAll",
     "HttpMethod": "GET",
