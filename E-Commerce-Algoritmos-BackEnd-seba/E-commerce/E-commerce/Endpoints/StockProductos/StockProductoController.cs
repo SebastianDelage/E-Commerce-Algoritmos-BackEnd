@@ -54,9 +54,9 @@ namespace E_commerce.Endpoints.StockProductos
         public async Task<BaseResponse> CreateStockProducto([FromBody] StockProducto stock)
         {
             var parameters = new Dapper.DynamicParameters();
-            parameters.Add("p0", stock.ProductoId);
-            parameters.Add("p1", stock.ColorId);
-            parameters.Add("p2", stock.TallesId);
+            parameters.Add("p0", stock.producto_id);
+            parameters.Add("p1", stock.color_id);
+            parameters.Add("p2", stock.talles_id);
             parameters.Add("p3", stock.Cantidad);
             var row = await _stockRepository.AddAsync(StockProductoQuery.CreateStockProducto, parameters);
             return row > 0

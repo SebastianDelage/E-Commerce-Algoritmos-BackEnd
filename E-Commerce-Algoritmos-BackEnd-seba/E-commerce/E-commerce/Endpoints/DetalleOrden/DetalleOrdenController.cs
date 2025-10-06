@@ -39,10 +39,10 @@ namespace E_commerce.Endpoints.DetalleOrden
         public async Task<BaseResponse> Create([FromBody] DetalleOrdenes detalleOrden)
         {
             var parameters = new Dapper.DynamicParameters();
-            parameters.Add("p0", detalleOrden.OrdenId);
+            parameters.Add("p0", detalleOrden.orden_id);
             parameters.Add("p1", detalleOrden.PrecioUnitario);
             parameters.Add("p2", detalleOrden.Cantidad);
-            parameters.Add("p3", detalleOrden.StockId);
+            parameters.Add("p3", detalleOrden.stock_id);
             var row = await _detalleOrdenRepository.AddAsync(detalleOrdenQuery.CreateDetalleOrden, parameters);
             return row > 0
                 ? new DataResponse<DetalleOrdenes>(true, 200, "Detalle de orden creado")
@@ -54,8 +54,8 @@ namespace E_commerce.Endpoints.DetalleOrden
         public async Task<BaseResponse> UpdateDetalleOrden(int id_detalle_orden, [FromBody] DetalleOrdenes detalleOrden)
         {
             var parameters = new Dapper.DynamicParameters();
-            parameters.Add("p0", detalleOrden.OrdenId);
-            parameters.Add("p1", detalleOrden.StockId);
+            parameters.Add("p0", detalleOrden.orden_id);
+            parameters.Add("p1", detalleOrden.stock_id);
             parameters.Add("p2", detalleOrden.Cantidad);
             parameters.Add("p3", detalleOrden.PrecioUnitario);
             parameters.Add("p4", id_detalle_orden);

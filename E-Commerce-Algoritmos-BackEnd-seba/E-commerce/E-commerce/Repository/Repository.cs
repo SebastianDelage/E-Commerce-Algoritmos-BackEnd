@@ -34,7 +34,7 @@ public class Repository<T> : IRepository<T> where T : class
         using var connection = CreateConnection();
         return await connection.ExecuteAsync(query);
     }
-    //como funciona esto?
+
     public async Task<int> AddAsync(string query, object? param = null)
     {
         using var connection = CreateConnection();
@@ -46,5 +46,12 @@ public class Repository<T> : IRepository<T> where T : class
         using var connection = CreateConnection();
         return await connection.ExecuteAsync(query,param);
     }
+
+    public async Task<int> DeleteAsync(string query,object ? param = null)
+    {
+        using var connection = CreateConnection();
+        return await connection.ExecuteAsync(query,param);
+    }
+
 }
 

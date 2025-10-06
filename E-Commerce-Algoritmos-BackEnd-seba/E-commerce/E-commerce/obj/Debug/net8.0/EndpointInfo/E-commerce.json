@@ -179,6 +179,45 @@
         }
       }
     },
+    "/Categoria/DeleteCategoria": {
+      "delete": {
+        "tags": [
+          "Categoria"
+        ],
+        "parameters": [
+          {
+            "name": "categoria_id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/Color/GetAll": {
       "get": {
         "tags": [
@@ -806,7 +845,7 @@
         ],
         "parameters": [
           {
-            "name": "id_color",
+            "name": "orden_id",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -1741,11 +1780,11 @@
             "type": "integer",
             "format": "int32"
           },
-          "ordenId": {
+          "orden_id": {
             "type": "integer",
             "format": "int32"
           },
-          "stockId": {
+          "stock_id": {
             "type": "integer",
             "format": "int32"
           },
@@ -1781,7 +1820,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "usuarioId": {
+          "usuario_id": {
             "type": "integer",
             "format": "int32"
           },
@@ -1819,15 +1858,15 @@
             "type": "number",
             "format": "float"
           },
-          "categoriaID": {
+          "categoria_id": {
             "type": "integer",
             "format": "int32"
           },
-          "marcaId": {
+          "marca_id": {
             "type": "integer",
             "format": "int32"
           },
-          "generoId": {
+          "genero_id": {
             "type": "integer",
             "format": "int32"
           },
@@ -1845,15 +1884,15 @@
             "type": "integer",
             "format": "int32"
           },
-          "productoId": {
+          "producto_id": {
             "type": "integer",
             "format": "int32"
           },
-          "tallesId": {
+          "talles_id": {
             "type": "integer",
             "format": "int32"
           },
-          "colorId": {
+          "color_id": {
             "type": "integer",
             "format": "int32"
           },
@@ -1867,7 +1906,7 @@
       "Talle": {
         "type": "object",
         "properties": {
-          "talle_id": {
+          "talles_id": {
             "type": "integer",
             "format": "int32"
           },

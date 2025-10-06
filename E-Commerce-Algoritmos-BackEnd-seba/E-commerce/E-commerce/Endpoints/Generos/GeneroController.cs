@@ -28,7 +28,7 @@ namespace E_commerce.Endpoints.Generos
         [Route("getById")]
         public async Task<BaseResponse> GetById(int id_genero)
         {
-            var row = await _generoRepository.GetByIdAsync(GeneroQuerys.GetById(id_genero);
+            var row = await _generoRepository.GetByIdAsync(GeneroQuerys.GetById(id_genero));
             return row is null
                 ? new BaseResponse(false, 404, "Genero no encontrado")
                 : new DataResponse<Genero>(true, 200, "Genero encontrado", data: row);

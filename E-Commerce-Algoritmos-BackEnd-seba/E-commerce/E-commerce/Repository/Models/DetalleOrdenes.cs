@@ -3,8 +3,8 @@
     public class DetalleOrdenes
     {
         public int detalleOrden_id { get; set; }
-        public int OrdenId { get; set; }
-        public int StockId { get; set; }
+        public int orden_id { get; set; }
+        public int stock_id { get; set; }
         public int Cantidad { get; set; }
         public decimal PrecioUnitario { get; set; }
 
@@ -13,8 +13,8 @@
         public DetalleOrdenes(int detalleOrdenId, int ordenId, int stockId, int cantidad, decimal precioUnitario)
         {
             detalleOrden_id = detalleOrdenId;
-            OrdenId = ordenId;
-            StockId = stockId;
+            orden_id = ordenId;
+            stock_id = stockId;
             Cantidad = cantidad;
             PrecioUnitario = precioUnitario;
         }

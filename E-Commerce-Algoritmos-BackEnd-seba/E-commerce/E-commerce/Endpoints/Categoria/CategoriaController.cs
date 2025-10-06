@@ -33,8 +33,6 @@ namespace E_commerce.Endpoints.Categoria
         [Route("getById")]
         public async Task<BaseResponse> GetById([FromQuery]int categoria_id)
         {
-            //var parameters = new DynamicParameters();
-            //parameters.Add("p0", categoria_id, System.Data.DbType.Int32);
             var row = await _categoriaRepository.GetByIdAsync(CategoriasQuery.GetCategoriaById(categoria_id));
             return row is null
                 ? new BaseResponse(false, (int)HttpStatusCode.NotFound, "Categoria no encontrada")
@@ -64,6 +62,17 @@ namespace E_commerce.Endpoints.Categoria
             var row = await _categoriaRepository.UpdateAsync(CategoriasQuery.UpdateCategoria);
             return row > 0
                 ? new DataResponse<Categorias>(true, (int)HttpStatusCode.OK, "Categoria actualizada")
+                : new BaseResponse(false, (int)HttpStatusCode.NotFound, "Categoria no encontrada");
+        }
+
+        [HttpDelete]
+        [Route("DeleteCategoria")]
+
+        public async Task<BaseResponse> DeleteCategoria([FromQuery] int categoria_id)
+        {
+            var row = await _categoriaRepository.DeleteAsync(CategoriasQuery.DeleteCategoriaById(categoria_id));
+            return row > 0
+                ? new DataResponse<Categorias>(true,(int)HttpStatusCode.OK,"Categoria eliminada")
                 : new BaseResponse(false, (int)HttpStatusCode.NotFound, "Categoria no encontrada");
         }
     }

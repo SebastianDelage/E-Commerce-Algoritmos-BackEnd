@@ -40,7 +40,7 @@ namespace E_commerce.Endpoints.Ordenes
 		public async Task<BaseResponse> Create([FromBody] Orden orden)
 		{
 			var parameters = new Dapper.DynamicParameters();	
-			parameters.Add("p0", orden.UsuarioId);
+			parameters.Add("p0", orden.usuario_id);
 			parameters.Add("p1", orden.FechaOrden);
 			parameters.Add("p2", orden.Estado);
 			parameters.Add("p3", orden.Total);
@@ -55,7 +55,7 @@ namespace E_commerce.Endpoints.Ordenes
 		public async Task<BaseResponse> UpdateOrden(int id_orden, [FromBody] Orden orden)
 		{
 			var parameters = new Dapper.DynamicParameters();
-			parameters.Add("p0", orden.UsuarioId);
+			parameters.Add("p0", orden.usuario_id);
 			parameters.Add("p1", orden.FechaOrden);
 			parameters.Add("p2", orden.Estado);
 			parameters.Add("p3", orden.Total);

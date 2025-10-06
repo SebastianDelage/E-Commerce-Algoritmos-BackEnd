@@ -65,6 +65,17 @@ namespace E_commerce.Endpoints.Colores
                 ? new DataResponse<Color>(true, (int)HttpStatusCode.OK, "Color creado")
                 : new BaseResponse(false, (int)HttpStatusCode.Conflict, "El color ya existe");
         }
+
+        [HttpDelete]
+        [Route("DeleteColor")]
+
+        public async Task<BaseResponse> DeleteColor([FromQuery] int color_id)
+        {
+            var row = await _colorRepository.DeleteAsync(ColoresQuery.DeletColorById(color_id));
+            return row > 0
+                ? new DataResponse<Color>(true,(int)HttpStatusCode.OK,"Color creado")
+                : new BaseResponse(false,(int)HttpStatusCode.NotFound,"Color no encontrado");
+        }
     }
 }
 

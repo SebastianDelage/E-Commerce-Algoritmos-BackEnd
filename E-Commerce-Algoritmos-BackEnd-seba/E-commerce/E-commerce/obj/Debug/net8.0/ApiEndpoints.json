@@ -27,6 +27,32 @@
   },
   {
     "ContainingType": "E_commerce.Endpoints.Categoria.CategoriaController",
+    "Method": "DeleteCategoria",
+    "RelativePath": "Categoria/DeleteCategoria",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoria_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Categoria.CategoriaController",
     "Method": "GetAll",
     "RelativePath": "Categoria/GetAll",
     "HttpMethod": "GET",
@@ -512,7 +538,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id_color",
+        "Name": "orden_id",
         "Type": "System.Int32",
         "IsRequired": false
       }

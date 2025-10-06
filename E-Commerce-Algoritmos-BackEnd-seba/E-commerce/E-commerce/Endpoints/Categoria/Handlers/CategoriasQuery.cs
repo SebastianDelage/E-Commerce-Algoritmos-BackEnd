@@ -13,7 +13,10 @@ namespace E_commerce.Endpoints.Categoria.Handlers
             return string.Format(" SELECT * FROM categorias WHERE categoria_id = {0};", id);
         }
 
-        public const string DeleteCategoriaById = "DELETE FROM categorias where categoria_id = ?;";
+        public static string DeleteCategoriaById(int id) 
+        { 
+            return string.Format("DELETE FROM categorias WHERE categoria_id = {0}",id);
+        }
 
         public const string UpdateCategoria = "UPDATE categorias SET nombre = ? WHERE categoria_id = ?;";
 

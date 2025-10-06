@@ -7,7 +7,10 @@
         {
             return string.Format("SELECT * FROM colores WHERE color_id = {0}", id);
         }
-        public const string DeleteColorById = "DELETE FROM colores where color_id = ?;";
+        public static string DeletColorById(int id)
+        {
+            return string.Format("DELETE FROM colores WHERE color_id  = {0}", id);
+        }
         public const string UpdateColor = "UPDATE colores SET nombre = ?, codigo = ? WHERE color_id = ?;";
         public const string CreateColor = "INSERT INTO colores (nombre, codigo) VALUES (?, ?);";
     }

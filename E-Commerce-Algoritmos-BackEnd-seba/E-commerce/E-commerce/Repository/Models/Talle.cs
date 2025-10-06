@@ -2,7 +2,7 @@
 {
     public class Talle
     {
-        public int talle_id { get; set; }
+        public int talles_id { get; set; }
         public string Nombre { get; set; }
 
 
@@ -10,7 +10,7 @@
 
         public Talle(int talleId, string nombre)
         {
-            talle_id = talleId;
+            talles_id = talleId;
             Nombre = nombre;
         }
 

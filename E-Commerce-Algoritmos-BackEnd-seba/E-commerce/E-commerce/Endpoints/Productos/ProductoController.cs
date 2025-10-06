@@ -58,8 +58,8 @@ namespace E_commerce.Endpoints.Productos
             parameters.Add("p0", producto.Nombre);
             parameters.Add("p1", producto.Descripcion);
             parameters.Add("p2", producto.Precio);
-            parameters.Add("p3", producto.MarcaId);
-            parameters.Add("p4", producto.GeneroId);
+            parameters.Add("p3", producto.marca_id);
+            parameters.Add("p4", producto.genero_id);
             var row = await _personaRepository.AddAsync(ProductoQuery.CreateProducto, parameters);
             return row > 0
                 ? new DataResponse<Producto>(true, 200, "Producto creado")
@@ -74,8 +74,8 @@ namespace E_commerce.Endpoints.Productos
             parameters.Add("p0", producto.Nombre);
             parameters.Add("p1", producto.Descripcion);
             parameters.Add("p2", producto.Precio);
-            parameters.Add("p3", producto.MarcaId);
-            parameters.Add("p4", producto.GeneroId);
+            parameters.Add("p3", producto.marca_id);
+            parameters.Add("p4", producto.genero_id);
             parameters.Add("p5", id_producto);
             var row = await _personaRepository.UpdateAsync(ProductoQuery.UpdateProducto, parameters);
             return row > 0
