@@ -9,7 +9,11 @@ namespace E_commerce.Endpoints.Productos.Handlers
         {
             return string.Format($"SELECT * FROM productos WHERE producto_id = {id}");
         }
-       public static string GetProductoById(int id)
+        public static string GetProductoByGenero(int id)
+        {
+            return string.Format($"SELECT * FROM productos WHERE genero_id  = {id};");
+        }
+        public static string GetProductoById(int id)
         {
             return string.Format($"SELECT * FROM productos as p WHERE p.categoria_id = {id}");
         }
