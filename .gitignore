@@ -1,0 +1,19 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Compilación
+bin/
+obj/
+Debug/
+Release/
+
+# Paquetes NuGet
+packages/
+*.nupkg
+project.lock.json
+
+# Archivos temporales
+*.log
+*.tmp
