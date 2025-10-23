@@ -28,6 +28,13 @@ public class Repository<T> : IRepository<T> where T : class
         return await connection.QueryFirstOrDefaultAsync<T>(query,param);
     }
 
+    public async Task<List<T?>> GetListAsync(string query)
+    {
+        using var connection = CreateConnection();
+        var result = await connection.QueryAsync<T>(query);
+        return result.ToList();
+    }
+
 
     public async Task<int> ExecuteAsync(string query)
     {

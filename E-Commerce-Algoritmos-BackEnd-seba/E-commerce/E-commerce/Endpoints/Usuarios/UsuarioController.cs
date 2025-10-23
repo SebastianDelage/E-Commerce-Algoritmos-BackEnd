@@ -3,6 +3,12 @@ using E_commerce.Responses;
 using E_commerce.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
 using E_commerce.Endpoints.Usuarios.Handlers;
+using Microsoft.AspNetCore.Identity.Data;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace E_commerce.Endpoints.Usuarios
 {
@@ -14,6 +20,7 @@ namespace E_commerce.Endpoints.Usuarios
         {
             _usuarioRepository = usuarioRepository;
         }
+
         [HttpGet]
         [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
@@ -23,6 +30,7 @@ namespace E_commerce.Endpoints.Usuarios
                ? new DataResponse<IEnumerable<Usuario>>(true, 404, "Resultado no encontrado", data: rows)
                : new DataResponse<IEnumerable<Usuario>>(true, 200, "Resultado", data: rows);
         }
+
         [HttpGet]
         [Route("getById")]
         public async Task<BaseResponse> GetById([FromQuery]int id_usuario)
@@ -40,9 +48,11 @@ namespace E_commerce.Endpoints.Usuarios
         public async Task<BaseResponse> Create([FromBody] Usuario usuario)
         {
             var parameters = new Dapper.DynamicParameters();
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(usuario.Contraseña);
+
             parameters.Add("p0", usuario.Nombre);
-            parameters.Add("p1", usuario.Email);
-            parameters.Add("p2", usuario.Contraseña);
+            parameters.Add("p1", usuario.Email);            
+            parameters.Add("p2", hashedPassword);
             parameters.Add("p3", usuario.Direccion);
             parameters.Add("p4", usuario.Telefono);
             var row = await _usuarioRepository.AddAsync(UsuariosQuery.CreateUsuario, parameters);
@@ -72,6 +82,61 @@ namespace E_commerce.Endpoints.Usuarios
                 return new DataResponse<List<Usuario>>(true, 200, "Usuario actualizado");
             }
         }
+
+
+        [HttpPost]
+        [Route("Login")]
+        public async Task<BaseResponse> Login([FromBody] Repository.Models.LoginRequest request)
+        {
+            var parameters = new Dapper.DynamicParameters();
+            parameters.Add("p0", request.Email);
+
+            var usuario = await _usuarioRepository.GetByIdAsync(UsuariosQuery.GetUsuarioPerfilByEmail, parameters);
+
+            if (usuario == null || usuario.Contraseña != request.Password)
+            {
+                return new BaseResponse(false, 401, "Credenciales inválidas");
+            }
+
+            // 1. Crear claims
+            var claims = new[]
+            {
+        new Claim(ClaimTypes.Name, usuario.Email),
+        new Claim(ClaimTypes.Role, usuario.PerfilNombre)
+    };
+
+            // 2. Crear clave y credenciales
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("p9X$7v@Lk#3rT!zQw8mN^2sYbG0eHjUd"));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            // 3. Crear token
+            var token = new JwtSecurityToken(
+                issuer: "tuApp",
+                audience: "tuApp",
+                claims: claims,
+                expires: DateTime.UtcNow.AddDays(7),
+                signingCredentials: creds
+            );
+
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+            // 4. Preparar respuesta
+            var response = new
+            {
+                token = tokenString,
+                usuario = new
+                {
+                    Email = usuario.Email,
+                    Nombre = usuario.Nombre,
+                    Perfil = usuario.PerfilNombre
+                }
+            };
+
+            return new DataResponse<object>(true, 200, "Login exitoso", data: response);
+        }
+
+
+
     }
 }
 

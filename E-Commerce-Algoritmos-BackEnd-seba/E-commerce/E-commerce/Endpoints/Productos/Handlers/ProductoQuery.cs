@@ -9,7 +9,11 @@ namespace E_commerce.Endpoints.Productos.Handlers
         {
             return string.Format($"SELECT * FROM productos WHERE producto_id = {id}");
         }
-       public static string GetProductoById(int id)
+        public static string GetProductoByGenero(int id)
+        {
+            return string.Format($"SELECT * FROM productos WHERE genero_id  = {id};");
+        }
+        public static string GetProductoById(int id)
         {
             return string.Format($"SELECT * FROM productos as p WHERE p.categoria_id = {id}");
         }
@@ -18,7 +22,9 @@ namespace E_commerce.Endpoints.Productos.Handlers
                                     WHERE producto_id = ?;";
         public const string CreateProducto = @"INSERT INTO productos (nombre, descripcion, precio, marca_id, categoria_id) VALUES (?, ?, ?, ?, ?);";
         
-        
+        public static string GetProductoPromocion(int id) {
+            return string.Format($"SELECT * FROM productos p INNER JOIN promociones p2 ON p.promocion_id = p2.promocion_id WHERE p2.estado  ={id};");
+        }
     
     }
 }

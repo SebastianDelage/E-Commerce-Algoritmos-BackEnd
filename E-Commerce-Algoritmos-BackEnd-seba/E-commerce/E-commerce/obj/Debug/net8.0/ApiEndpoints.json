@@ -712,6 +712,32 @@
   },
   {
     "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
+    "Method": "GetProductoByGenero",
+    "RelativePath": "Producto/GetProductoByGenero",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "genero_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
     "Method": "UpdateProducto",
     "RelativePath": "Producto/UpdateProducto",
     "HttpMethod": "PATCH",
@@ -1005,6 +1031,32 @@
         "Name": "id_usuario",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Usuarios.UsuarioController",
+    "Method": "Login",
+    "RelativePath": "Usuario/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "E_commerce.Repository.Models.LoginRequest",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [

@@ -8,5 +8,6 @@
         Task<int> AddAsync(string query,object ? param = null);//agregar un nuevo registro
         Task<int> UpdateAsync(string query, object? param = null);//actualizar un registro
         Task<int> DeleteAsync(string query, object? param = null);
+        Task<List<T>> GetListAsync(string query);
     }
 }
