@@ -8,10 +8,11 @@
         public string Contraseña { get; set; }
         public string Direccion {  get; set; }
         public string Telefono { get; set; }
+        public string PerfilNombre { get; set; }
 
         public Usuario() { }
 
-        public Usuario(int usuarioId, string nombre, string email, string contraseña, string direccion, string telefono)
+        public Usuario(int usuarioId, string nombre, string email, string contraseña, string direccion, string telefono, string perfilNombre)
         {
             usuario_id = usuarioId;
             Nombre = nombre;
@@ -19,6 +20,7 @@
             Contraseña = contraseña;
             Direccion = direccion;
             Telefono = telefono;
+            PerfilNombre = perfilNombre;
         }
 
     }

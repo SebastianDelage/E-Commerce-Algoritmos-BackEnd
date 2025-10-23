@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Eu28rJtYYMGOOjy7BMNnT8OGmok798OtG8uiUoRGwS4=",
+  "Hash": "AqzG3e1jiOy8LwTdkx7BhU7ZcRDfpea749F3wd7f3dQ=",
   "Source": "E-commerce",
   "BasePath": "_content/E-commerce",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "E-commerce\\wwwroot",
       "Source": "E-commerce",
-      "ContentRoot": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\hilet.HILET\\Desktop\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\",
       "BasePath": "_content/E-commerce",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg",
+      "Identity": "C:\\Users\\hilet.HILET\\Desktop\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg",
       "SourceId": "E-commerce",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\hilet.HILET\\Desktop\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\",
       "BasePath": "_content/E-commerce",
       "RelativePath": "asd#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -41,7 +41,7 @@
   "Endpoints": [
     {
       "Route": "asd.j4ugqcj0c9.jpg",
-      "AssetFile": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg",
+      "AssetFile": "C:\\Users\\hilet.HILET\\Desktop\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Oct 2025 11:15:48 GMT"
+          "Value": "Thu, 23 Oct 2025 11:21:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -86,7 +86,7 @@
     },
     {
       "Route": "asd.jpg",
-      "AssetFile": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg",
+      "AssetFile": "C:\\Users\\hilet.HILET\\Desktop\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -107,7 +107,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Oct 2025 11:15:48 GMT"
+          "Value": "Thu, 23 Oct 2025 11:21:18 GMT"
         },
         {
           "Name": "Cache-Control",
