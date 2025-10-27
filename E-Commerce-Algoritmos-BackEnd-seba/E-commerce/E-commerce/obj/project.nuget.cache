@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KoBKzD5GiPU=",
+  "dgSpecHash": "TfaN/eAmmKo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\hilet.HILET\\Desktop\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\E-commerce.csproj",
+  "projectFilePath": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\E-commerce.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hilet.HILET\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
     "C:\\Users\\hilet.HILET\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.21\\microsoft.aspnetcore.authentication.jwtbearer.8.0.21.nupkg.sha512",
@@ -23,12 +23,5 @@
     "C:\\Users\\hilet.HILET\\.nuget\\packages\\system.data.odbc\\8.0.1\\system.data.odbc.8.0.1.nupkg.sha512",
     "C:\\Users\\hilet.HILET\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.14.0\\system.identitymodel.tokens.jwt.8.14.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\hilet.HILET\\Desktop\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
