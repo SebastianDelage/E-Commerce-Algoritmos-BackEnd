@@ -21,6 +21,7 @@ namespace E_commerce.Endpoints.Usuarios
             _usuarioRepository = usuarioRepository;
         }
 
+        [Authorize]
         [HttpGet]
         [Route("GetAll")]
         public async Task<BaseResponse> GetAll()
@@ -55,12 +56,14 @@ namespace E_commerce.Endpoints.Usuarios
             parameters.Add("p2", hashedPassword);
             parameters.Add("p3", usuario.Direccion);
             parameters.Add("p4", usuario.Telefono);
+            parameters.Add("p5", usuario.PerfilNombre);
             var row = await _usuarioRepository.AddAsync(UsuariosQuery.CreateUsuario, parameters);
             return row > 0
                 ? new DataResponse<Usuario>(true, 200, "Usuario creado")
                 : new BaseResponse(false, 409, "El usuario ya existe");
         }
 
+        [Authorize(Roles = "Administrador")]
         [HttpPatch]
         [Route("UpdateUsuario")]
         public async Task<BaseResponse> UpdateUsuario(int id_usuario, [FromBody] Usuario usuario)
@@ -83,7 +86,6 @@ namespace E_commerce.Endpoints.Usuarios
             }
         }
 
-
         [HttpPost]
         [Route("Login")]
         public async Task<BaseResponse> Login([FromBody] Repository.Models.LoginRequest request)
@@ -93,26 +95,23 @@ namespace E_commerce.Endpoints.Usuarios
 
             var usuario = await _usuarioRepository.GetByIdAsync(UsuariosQuery.GetUsuarioPerfilByEmail, parameters);
 
-            if (usuario == null || usuario.Contraseña != request.Password)
+            if (usuario == null || !BCrypt.Net.BCrypt.Verify(request.Password, usuario.Contraseña))
             {
                 return new BaseResponse(false, 401, "Credenciales inválidas");
             }
 
-            // 1. Crear claims
             var claims = new[]
             {
         new Claim(ClaimTypes.Name, usuario.Email),
         new Claim(ClaimTypes.Role, usuario.PerfilNombre)
     };
 
-            // 2. Crear clave y credenciales
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("p9X$7v@Lk#3rT!zQw8mN^2sYbG0eHjUd"));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            // 3. Crear token
             var token = new JwtSecurityToken(
-                issuer: "tuApp",
-                audience: "tuApp",
+                issuer: "EcommerceApp",
+                audience: "EcommerceApp",
                 claims: claims,
                 expires: DateTime.UtcNow.AddDays(7),
                 signingCredentials: creds
@@ -120,7 +119,6 @@ namespace E_commerce.Endpoints.Usuarios
 
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-            // 4. Preparar respuesta
             var response = new
             {
                 token = tokenString,
@@ -134,6 +132,7 @@ namespace E_commerce.Endpoints.Usuarios
 
             return new DataResponse<object>(true, 200, "Login exitoso", data: response);
         }
+
 
 
 

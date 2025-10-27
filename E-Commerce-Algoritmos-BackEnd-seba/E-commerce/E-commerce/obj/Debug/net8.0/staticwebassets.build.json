@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AqzG3e1jiOy8LwTdkx7BhU7ZcRDfpea749F3wd7f3dQ=",
+  "Hash": "8UYBAS4O3P/J8YiCtHpUubI7P7Iam0HU/o586d+IOrA=",
   "Source": "E-commerce",
   "BasePath": "_content/E-commerce",
   "Mode": "Default",
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 23 Oct 2025 11:21:18 GMT"
+          "Value": "Mon, 27 Oct 2025 11:19:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -107,7 +107,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 23 Oct 2025 11:21:18 GMT"
+          "Value": "Mon, 27 Oct 2025 11:19:46 GMT"
         },
         {
           "Name": "Cache-Control",

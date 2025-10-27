@@ -768,6 +768,26 @@
     ]
   },
   {
+    "ContainingType": "E_commerce.Endpoints.Promocion.PromocionController",
+    "Method": "GetAllPromociones",
+    "RelativePath": "Promocion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "E_commerce.Endpoints.StockProductos.StockProductoController",
     "Method": "CreateStockProducto",
     "RelativePath": "StockProducto/CreateStockProducto",
