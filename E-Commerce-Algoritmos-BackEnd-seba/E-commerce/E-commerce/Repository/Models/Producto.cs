@@ -12,8 +12,9 @@ namespace E_commerce.Repository.Models
         public int marca_id { get; set; }
         public int genero_id { get; set; }
         public string ImagenUrl { get; set; }
+        public int promocion_id { get; set; }
 
-        public Producto(int producto_id,string name,string descripcion,float precio,int categoria_id,int marca_id,int genero_id,string imagenURL) {
+        public Producto(int producto_id,string name,string descripcion,float precio,int categoria_id,int marca_id,int genero_id,string imagenURL,int promocion_id) {
             this.Nombre = name;
             this.Precio = precio;
             this.Descripcion = descripcion;
@@ -22,6 +23,7 @@ namespace E_commerce.Repository.Models
             this.genero_id = genero_id;
             this.ImagenUrl = imagenURL;
             this.producto_id = producto_id;
+            this.promocion_id = promocion_id;
         }
 
         public Producto()

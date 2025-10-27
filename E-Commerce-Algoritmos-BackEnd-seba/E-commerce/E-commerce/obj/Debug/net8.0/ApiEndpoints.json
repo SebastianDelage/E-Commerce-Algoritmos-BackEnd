@@ -661,7 +661,7 @@
   {
     "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
     "Method": "GetByCategoria",
-    "RelativePath": "Producto/GetByCategora",
+    "RelativePath": "Producto/GetByCategoria",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -738,6 +738,32 @@
   },
   {
     "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
+    "Method": "GetProductoPromocion",
+    "RelativePath": "Producto/GetProductoPromocion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "estado",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
     "Method": "UpdateProducto",
     "RelativePath": "Producto/UpdateProducto",
     "HttpMethod": "PATCH",
@@ -755,6 +781,26 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": [
+      {
+        "Type": "E_commerce.Responses.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "E_commerce.Endpoints.Promocion.PromocionController",
+    "Method": "GetAllPromociones",
+    "RelativePath": "Promocion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "E_commerce.Responses.BaseResponse",

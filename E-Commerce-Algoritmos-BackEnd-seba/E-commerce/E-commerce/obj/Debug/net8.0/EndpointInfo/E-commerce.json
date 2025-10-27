@@ -1090,7 +1090,7 @@
         }
       }
     },
-    "/Producto/GetByCategora": {
+    "/Producto/GetByCategoria": {
       "get": {
         "tags": [
           "Producto"
@@ -1098,6 +1098,45 @@
         "parameters": [
           {
             "name": "categoriaId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Producto/GetProductoPromocion": {
+      "get": {
+        "tags": [
+          "Producto"
+        ],
+        "parameters": [
+          {
+            "name": "estado",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -1250,6 +1289,35 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Promocion": {
+      "get": {
+        "tags": [
+          "Promocion"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2013,6 +2081,10 @@
           "imagenUrl": {
             "type": "string",
             "nullable": true
+          },
+          "promocion_id": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

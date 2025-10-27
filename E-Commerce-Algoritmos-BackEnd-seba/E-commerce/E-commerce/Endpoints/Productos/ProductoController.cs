@@ -40,7 +40,7 @@ namespace E_commerce.Endpoints.Productos
         }
 
         [HttpGet]
-        [Route("GetByCategora")]
+        [Route("GetByCategoria")]
         public async Task<BaseResponse> GetByCategoria([FromQuery]int categoriaId)
         {
 
@@ -48,6 +48,16 @@ namespace E_commerce.Endpoints.Productos
             return row is null
                 ? new BaseResponse(false, (int)HttpStatusCode.NotFound, "Producto no encontrado")
                 : new DataResponse<Producto>(true, (int)HttpStatusCode.OK, "Producto encontrado", data: row);
+        }
+
+        [HttpGet]
+        [Route("GetProductoPromocion")]
+        public async Task<BaseResponse> GetProductoPromocion(int estado)
+        {
+            var row = await _personaRepository.GetListAsync(ProductoQuery.GetProductoPromocion(estado));
+            return row is null
+                ? new BaseResponse(false, (int)HttpStatusCode.NotFound, "Producto no encontrado")
+                : new DataResponse<List<Producto>>(true, (int)HttpStatusCode.OK, "Producto encontrado", data: row);
         }
 
         [HttpGet]
