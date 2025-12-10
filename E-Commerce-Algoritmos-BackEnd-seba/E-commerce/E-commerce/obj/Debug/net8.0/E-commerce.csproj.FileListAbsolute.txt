@@ -206,3 +206,13 @@ C:\Users\hilet.HILET\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-A
 C:\Users\hilet.HILET\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\hilet.HILET\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\hilet.HILET\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\E-commerce.staticwebassets.runtime.json
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\seba\Documents\GitHub\E-Commerce-Algoritmos-BackEnd\E-Commerce-Algoritmos-BackEnd-seba\E-commerce\E-commerce\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

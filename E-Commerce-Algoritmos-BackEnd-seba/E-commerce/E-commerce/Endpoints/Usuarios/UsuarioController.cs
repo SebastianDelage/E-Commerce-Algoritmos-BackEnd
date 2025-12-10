@@ -83,57 +83,28 @@ namespace E_commerce.Endpoints.Usuarios
             }
         }
 
-
         [HttpPost]
         [Route("Login")]
-        public async Task<BaseResponse> Login([FromBody] Repository.Models.LoginRequest request)
+        public async Task<BaseResponse> Login([FromBody] Usuario request)
         {
+            if (string.IsNullOrWhiteSpace(request.Email) || string.IsNullOrWhiteSpace(request.Contraseña))
+            {
+                return new BaseResponse(false, 400, "Email y contraseña son obligatorios");
+            }
+
             var parameters = new Dapper.DynamicParameters();
             parameters.Add("p0", request.Email);
 
             var usuario = await _usuarioRepository.GetByIdAsync(UsuariosQuery.GetUsuarioPerfilByEmail, parameters);
 
-            if (usuario == null || usuario.Contraseña != request.Password)
+            if (usuario == null || usuario.Contraseña != request.Contraseña)
             {
                 return new BaseResponse(false, 401, "Credenciales inválidas");
             }
 
-            // 1. Crear claims
-            var claims = new[]
-            {
-        new Claim(ClaimTypes.Name, usuario.Email),
-        new Claim(ClaimTypes.Role, usuario.PerfilNombre)
-    };
-
-            // 2. Crear clave y credenciales
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("p9X$7v@Lk#3rT!zQw8mN^2sYbG0eHjUd"));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            // 3. Crear token
-            var token = new JwtSecurityToken(
-                issuer: "tuApp",
-                audience: "tuApp",
-                claims: claims,
-                expires: DateTime.UtcNow.AddDays(7),
-                signingCredentials: creds
-            );
-
-            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
-            // 4. Preparar respuesta
-            var response = new
-            {
-                token = tokenString,
-                usuario = new
-                {
-                    Email = usuario.Email,
-                    Nombre = usuario.Nombre,
-                    Perfil = usuario.PerfilNombre
-                }
-            };
-
-            return new DataResponse<object>(true, 200, "Login exitoso", data: response);
+            return new DataResponse<Usuario>(true, 200, "Login exitoso", data: usuario);
         }
+
 
 
 

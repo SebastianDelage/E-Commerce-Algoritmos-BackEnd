@@ -21,10 +21,18 @@ namespace E_commerce.Endpoints.Productos.Handlers
         public const string UpdateProducto = @"UPDATE productos SET nombre = ?, descripcion = ?, precio = ?, marca_id = ?, categoria_id = ? 
                                     WHERE producto_id = ?;";
         public const string CreateProducto = @"INSERT INTO productos (nombre, descripcion, precio, marca_id, categoria_id) VALUES (?, ?, ?, ?, ?);";
-        
-        public static string GetProductoPromocion(int estado) {
-            return string.Format($"SELECT * FROM productos p INNER JOIN promociones p2 ON p.promocion_id = p2.promocion_id WHERE p2.estado  ={estado};");
+
+        public static string GetProductoPromocion(int estado)
+        {
+            return $@"
+        SELECT p.*
+        FROM productos p
+        INNER JOIN promociones p2 ON p.promocion_id = p2.promocion_id
+        WHERE p2.estado = {estado};
+    ";
         }
-    
+
+
+
     }
 }

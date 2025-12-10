@@ -1873,17 +1873,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
+                "$ref": "#/components/schemas/Usuario"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
+                "$ref": "#/components/schemas/Usuario"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
+                "$ref": "#/components/schemas/Usuario"
               }
             }
           }
@@ -1993,20 +1993,6 @@
         },
         "additionalProperties": false
       },
-      "LoginRequest": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Marca": {
         "type": "object",
         "properties": {
@@ -2085,6 +2071,10 @@
           "promocion_id": {
             "type": "integer",
             "format": "int32"
+          },
+          "nombrePromo": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

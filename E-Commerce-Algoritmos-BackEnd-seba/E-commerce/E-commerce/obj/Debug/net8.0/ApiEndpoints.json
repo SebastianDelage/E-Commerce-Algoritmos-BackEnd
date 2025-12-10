@@ -1101,7 +1101,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "E_commerce.Repository.Models.LoginRequest",
+        "Type": "E_commerce.Repository.Models.Usuario",
         "IsRequired": true
       }
     ],
