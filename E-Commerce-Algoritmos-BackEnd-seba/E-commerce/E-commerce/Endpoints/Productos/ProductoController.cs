@@ -87,20 +87,24 @@ namespace E_commerce.Endpoints.Productos
         }
 
         [HttpPatch]
-        [Route ("UpdateProducto")]
-        public async Task<BaseResponse> UpdateProducto(int id_producto, [FromBody] Producto producto)
+        [Route("UpdateProducto")]
+        public async Task<BaseResponse> UpdateProducto(int producto_id, [FromBody] Producto producto)
         {
             var parameters = new Dapper.DynamicParameters();
-            parameters.Add("p0", producto.Nombre);
-            parameters.Add("p1", producto.Descripcion);
-            parameters.Add("p2", producto.Precio);
-            parameters.Add("p3", producto.marca_id);
-            parameters.Add("p4", producto.genero_id);
-            parameters.Add("p5", id_producto);
+            parameters.Add("nombre", producto.Nombre);
+            parameters.Add("descripcion", producto.Descripcion);
+            parameters.Add("precio", producto.Precio);
+            parameters.Add("marca_id", producto.marca_id);
+            parameters.Add("genero_id", producto.genero_id);
+            parameters.Add("categoria_id", producto.categoria_id);
+            parameters.Add("producto_id", producto_id);
+
             var row = await _personaRepository.UpdateAsync(ProductoQuery.UpdateProducto, parameters);
+
             return row > 0
-                ? new DataResponse<Producto>(true, 200, "Producto actualizado")
+                ? new DataResponse<Producto>(true, 200, "Producto actualizado", producto)
                 : new BaseResponse(false, 404, "Producto no encontrado");
         }
+
     }
 }

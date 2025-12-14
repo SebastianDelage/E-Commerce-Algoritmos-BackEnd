@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/Categoria/GetAll": {
+    "/Categoria/GetAllCategoria": {
       "get": {
         "tags": [
           "Categoria"
@@ -606,35 +606,6 @@
         }
       }
     },
-    "/Genero/GetAll": {
-      "get": {
-        "tags": [
-          "Genero"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/BaseResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BaseResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BaseResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/Genero/getById": {
       "get": {
         "tags": [
@@ -674,7 +645,36 @@
         }
       }
     },
-    "/Marca/GetAll": {
+    "/Genero/GetAllGenero": {
+      "get": {
+        "tags": [
+          "Genero"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Marca/GetAllMarca": {
       "get": {
         "tags": [
           "Marca"
@@ -1262,7 +1262,7 @@
         ],
         "parameters": [
           {
-            "name": "id_producto",
+            "name": "producto_id",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -2149,6 +2149,10 @@
           "perfilNombre": {
             "type": "string",
             "nullable": true
+          },
+          "perfil_id": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

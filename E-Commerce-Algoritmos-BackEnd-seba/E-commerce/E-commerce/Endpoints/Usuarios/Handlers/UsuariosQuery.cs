@@ -10,16 +10,18 @@
                                     WHERE usuario_id = ?;";
         public const string CreateUsuario = @"INSERT INTO usuarios (nombre,email,contraseña,direccion,telefono ) VALUES (?, ?, ?, ?,?);";
         public const string GetUsuarioPerfilByEmail = @"
-                                                        SELECT u.usuario_id AS UsuarioId,
-                                                               u.nombre AS Nombre,
-                                                               u.email AS Email,
-                                                               u.contraseña,
-                                                               u.direccion AS Direccion,
-                                                               u.telefono AS Telefono,
-                                                               p.nombre AS PerfilNombre
-                                                        FROM usuarios u
-                                                        INNER JOIN perfil p ON u.perfil_id = p.perfil_id
-                                                        WHERE u.email = ?;";
+                                SELECT 
+                                    u.usuario_id AS usuario_id,
+                                    u.perfil_id AS perfil_id,
+                                    u.nombre AS nombre,
+                                    u.email AS email,
+                                    u.contraseña,
+                                    u.direccion AS direccion,
+                                    u.telefono AS telefono,
+                                    p.nombre AS perfilNombre
+                                FROM usuarios u
+                                INNER JOIN perfil p ON u.perfil_id = p.perfil_id
+                                WHERE u.email = ?;";
 
     }
 }

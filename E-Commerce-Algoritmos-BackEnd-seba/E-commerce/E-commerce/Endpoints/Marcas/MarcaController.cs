@@ -6,7 +6,7 @@ using E_commerce.Endpoints.Marcas.Handlers;
 
 namespace E_commerce.Endpoints.Marcas
 {
-
+    [ApiController]
     [Route("[Controller]")]
     public class MarcaController : ControllerBase
     {
@@ -16,12 +16,12 @@ namespace E_commerce.Endpoints.Marcas
             _marcaRepository = marcaRepository;
         }
         [HttpGet]
-        [Route("GetAll")]
+        [Route("GetAllMarca")]
         public async Task<BaseResponse> GetAll()
         {
             var rows = await _marcaRepository.GetAllAsync(MarcaQuery.GetAll);
             return rows is null
-               ? new DataResponse<IEnumerable<Marca>>(true, 404, "Resultado no encontrado", data: rows)
+               ? new DataResponse<IEnumerable<Marca>>(true, 404, "Resultado no encontrado")
                : new DataResponse<IEnumerable<Marca>>(true, 200, "Resultado", data: rows);
         }
 
@@ -61,5 +61,7 @@ namespace E_commerce.Endpoints.Marcas
                 ? new DataResponse<Marca>(true, 200, "Marca actualizada")
                 : new BaseResponse(false, 404, "Marca no encontrada");
         }
+
+
     }
 }

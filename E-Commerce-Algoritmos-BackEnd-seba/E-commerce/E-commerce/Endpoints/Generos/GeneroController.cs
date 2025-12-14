@@ -6,6 +6,7 @@ using E_commerce.Endpoints.Generos.Handlers;
 
 namespace E_commerce.Endpoints.Generos
 {
+    
     [Route("[Controller]")]
     public class GeneroController : ControllerBase
     {
@@ -14,15 +15,7 @@ namespace E_commerce.Endpoints.Generos
         {
             _generoRepository = generoRepository;
         }
-        [HttpGet]
-        [Route("GetAll")]
-        public async Task<BaseResponse> GetAll()
-        {
-            var rows = await _generoRepository.GetAllAsync(GeneroQuerys.GetAll);
-            return rows is null
-               ? new DataResponse<IEnumerable<Genero>>(true, 404, "Resultado no encontrado", data: rows)
-               : new DataResponse<IEnumerable<Genero>>(true, 200, "Resultado", data: rows);
-        }
+
 
         [HttpGet]
         [Route("getById")]
@@ -33,5 +26,16 @@ namespace E_commerce.Endpoints.Generos
                 ? new BaseResponse(false, 404, "Genero no encontrado")
                 : new DataResponse<Genero>(true, 200, "Genero encontrado", data: row);
         }
+
+        [HttpGet]
+        [Route("GetAllGenero")]
+        public async Task<BaseResponse> GetAllGenro()
+        {
+            var row = await _generoRepository.GetAllAsync(GeneroQuerys.GetAll);
+            return row is null
+                ? new BaseResponse(false, 404, "No exitoso")
+                : new DataResponse<IEnumerable<Genero>>(true, 200, "Exitoso", data: row);
+        }
+
     }
 }

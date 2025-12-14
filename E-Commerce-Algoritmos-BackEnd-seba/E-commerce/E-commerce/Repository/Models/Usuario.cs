@@ -10,9 +10,11 @@
         public string Telefono { get; set; }
         public string PerfilNombre { get; set; }
 
+        public int perfil_id { get; set; }
+
         public Usuario() { }
 
-        public Usuario(int usuarioId, string nombre, string email, string contraseña, string direccion, string telefono, string perfilNombre)
+        public Usuario(int usuarioId, string nombre, string email, string contraseña, string direccion, string telefono, string perfilNombre, int perfil_id)
         {
             usuario_id = usuarioId;
             Nombre = nombre;
@@ -21,6 +23,7 @@
             Direccion = direccion;
             Telefono = telefono;
             PerfilNombre = perfilNombre;
+            this.perfil_id = perfil_id;
         }
 
     }

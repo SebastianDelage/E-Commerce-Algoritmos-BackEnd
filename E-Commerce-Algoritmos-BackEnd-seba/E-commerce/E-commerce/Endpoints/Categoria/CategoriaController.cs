@@ -20,7 +20,7 @@ namespace E_commerce.Endpoints.Categoria
         }
 
         [HttpGet]
-        [Route("GetAll")]
+        [Route("GetAllCategoria")]
         public async Task<BaseResponse> GetAll()
         {
             var rows = await _categoriaRepository.GetAllAsync(CategoriasQuery.GetAllCategorias); 
