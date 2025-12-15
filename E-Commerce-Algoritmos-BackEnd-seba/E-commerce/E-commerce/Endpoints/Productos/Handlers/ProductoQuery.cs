@@ -28,7 +28,7 @@ namespace E_commerce.Endpoints.Productos.Handlers
                           genero_id = ?,
                           categoria_id = ?
                         WHERE producto_id = ?;";
-        public const string CreateProducto = @"INSERT INTO productos (nombre, descripcion, precio, marca_id, categoria_id) VALUES (?, ?, ?, ?, ?);";
+        public const string CreateProducto = @"INSERT INTO productos (nombre, descripcion, precio, marca_id, categoria_id,genero_id) VALUES (?, ?, ?, ?, ?,?);";
 
         public static string GetProductoPromocion(int estado)
         {

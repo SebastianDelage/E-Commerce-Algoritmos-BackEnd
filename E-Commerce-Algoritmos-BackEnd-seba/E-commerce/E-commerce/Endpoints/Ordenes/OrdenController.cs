@@ -35,22 +35,33 @@ namespace E_commerce.Endpoints.Ordenes
 
         }
 
-		[HttpPost]
-		[Route("CreateOrden")]
-		public async Task<BaseResponse> Create([FromBody] Orden orden)
-		{
-			var parameters = new Dapper.DynamicParameters();	
-			parameters.Add("p0", orden.usuario_id);
-			parameters.Add("p1", orden.FechaOrden);
-			parameters.Add("p2", orden.Estado);
-			parameters.Add("p3", orden.Total);
-			var row = await _ordenRepository.AddAsync(OrdenesQuery.CreateOrden, parameters);
-			return row > 0
-				? new DataResponse<Orden>(true, 200, "Orden creada")
-				: new BaseResponse(false, 409, "La orden ya existe");
+        [HttpPost]
+        [Route("CreateOrden")]
+        public async Task<BaseResponse> Create([FromBody] Orden orden)
+        {
+            try
+            {
+                var parameters = new Dapper.DynamicParameters();
+                parameters.Add("p0", orden.usuario_id);
+                parameters.Add("p1", orden.FechaOrden);
+                parameters.Add("p2", orden.Estado);
+                parameters.Add("p3", orden.Total);
+
+                var row = await _ordenRepository.AddAsync(OrdenesQuery.CreateOrden, parameters);
+
+                return row > 0
+                    ? new DataResponse<Orden>(true, 200, "Orden creada")
+                    : new BaseResponse(false, 409, "La orden ya existe");
+            }
+            catch (Exception ex)
+            {
+           
+                return new BaseResponse(false, 500, ex.Message);
+            }
         }
 
-		[HttpPatch]
+
+        [HttpPatch]
 		[Route("updateOrden")]
 		public async Task<BaseResponse> UpdateOrden(int id_orden, [FromBody] Orden orden)
 		{

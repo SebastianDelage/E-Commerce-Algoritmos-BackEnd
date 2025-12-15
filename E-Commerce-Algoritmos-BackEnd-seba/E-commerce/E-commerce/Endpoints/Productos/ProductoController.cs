@@ -71,7 +71,7 @@ namespace E_commerce.Endpoints.Productos
                 : new DataResponse<List<Producto>>(true, 200, "Productos encontrados", data: rows);
         }
         [HttpPost]
-        [Route("CrateProducto")]
+        [Route("CreateProducto")]
         public async Task<BaseResponse> Create([FromBody] Producto producto)
         {
             var parameters = new Dapper.DynamicParameters();
@@ -79,7 +79,8 @@ namespace E_commerce.Endpoints.Productos
             parameters.Add("p1", producto.Descripcion);
             parameters.Add("p2", producto.Precio);
             parameters.Add("p3", producto.marca_id);
-            parameters.Add("p4", producto.genero_id);
+            parameters.Add("p4", producto.categoria_id);
+            parameters.Add("p5", producto.genero_id);
             var row = await _personaRepository.AddAsync(ProductoQuery.CreateProducto, parameters);
             return row > 0
                 ? new DataResponse<Producto>(true, 200, "Producto creado")

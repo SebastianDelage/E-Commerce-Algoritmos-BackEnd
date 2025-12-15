@@ -1207,7 +1207,7 @@
         }
       }
     },
-    "/Producto/CrateProducto": {
+    "/Producto/CreateProducto": {
       "post": {
         "tags": [
           "Producto"

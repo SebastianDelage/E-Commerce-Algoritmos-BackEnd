@@ -615,7 +615,7 @@
   {
     "ContainingType": "E_commerce.Endpoints.Productos.ProductoController",
     "Method": "Create",
-    "RelativePath": "Producto/CrateProducto",
+    "RelativePath": "Producto/CreateProducto",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

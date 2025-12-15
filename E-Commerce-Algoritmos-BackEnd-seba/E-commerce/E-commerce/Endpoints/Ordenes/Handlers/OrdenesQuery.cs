@@ -10,6 +10,6 @@
         public const string DeleteOrdenById = "DELETE FROM ordenes WHERE orden_id = ?;";
         public const string UpdateOrden = @"UPDATE ordenes SET usuario_id = ?, fecha = ?, total = ? 
                                     WHERE orden_id = ?;";
-        public const string CreateOrden = @"INSERT INTO ordenes (usuario_id, fecha, total) VALUES (?, ?, ?);";
+        public const string CreateOrden = @"INSERT INTO ordenes (usuario_id, fechaOrden,estado, total) VALUES (?, ?,?, ?);";
     }
 }
