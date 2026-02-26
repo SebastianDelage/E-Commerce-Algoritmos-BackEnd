@@ -1,1 +1,125 @@
-{"Version":1,"Hash":"8bayu0rA6AtB1eTrg8MihDtS2CwnY6nR8e51/Wxv6ZY=","Source":"E-commerce","BasePath":"_content/E-commerce","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[{"Name":"E-commerce\\wwwroot","Source":"E-commerce","ContentRoot":"C:\\Users\\seba\\Documents\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\","BasePath":"_content/E-commerce","Pattern":"**"}],"Assets":[{"Identity":"C:\\Users\\seba\\Documents\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg","SourceId":"E-commerce","SourceType":"Discovered","ContentRoot":"C:\\Users\\seba\\Documents\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\","BasePath":"_content/E-commerce","RelativePath":"asd#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"j4ugqcj0c9","Integrity":"fclr9IYOVt7r9m9seotcQEyD3UwPXDCyD7xrSyqN2Gk=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\asd.jpg","FileLength":121619,"LastWriteTime":"2025-11-20T00:32:45+00:00"}],"Endpoints":[{"Route":"asd.j4ugqcj0c9.jpg","AssetFile":"C:\\Users\\seba\\Documents\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"121619"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"fclr9IYOVt7r9m9seotcQEyD3UwPXDCyD7xrSyqN2Gk=\""},{"Name":"Last-Modified","Value":"Thu, 20 Nov 2025 00:32:45 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"j4ugqcj0c9"},{"Name":"label","Value":"asd.jpg"},{"Name":"integrity","Value":"sha256-fclr9IYOVt7r9m9seotcQEyD3UwPXDCyD7xrSyqN2Gk="}]},{"Route":"asd.jpg","AssetFile":"C:\\Users\\seba\\Documents\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"121619"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"fclr9IYOVt7r9m9seotcQEyD3UwPXDCyD7xrSyqN2Gk=\""},{"Name":"Last-Modified","Value":"Thu, 20 Nov 2025 00:32:45 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-fclr9IYOVt7r9m9seotcQEyD3UwPXDCyD7xrSyqN2Gk="}]}]}
+{
+  "Version": 1,
+  "Hash": "Z9XMMmY16LXbSlf5SHSUPyclUs9gH5AaFvsOipHWTfU=",
+  "Source": "E-commerce",
+  "BasePath": "_content/E-commerce",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "E-commerce\\wwwroot",
+      "Source": "E-commerce",
+      "ContentRoot": "C:\\Users\\usuario\\OneDrive\\Documentos\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\",
+      "BasePath": "_content/E-commerce",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\usuario\\OneDrive\\Documentos\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg",
+      "SourceId": "E-commerce",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\usuario\\OneDrive\\Documentos\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\",
+      "BasePath": "_content/E-commerce",
+      "RelativePath": "asd#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j4ugqcj0c9",
+      "Integrity": "fclr9IYOVt7r9m9seotcQEyD3UwPXDCyD7xrSyqN2Gk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\asd.jpg"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "asd.j4ugqcj0c9.jpg",
+      "AssetFile": "C:\\Users\\usuario\\OneDrive\\Documentos\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "121619"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fclr9IYOVt7r9m9seotcQEyD3UwPXDCyD7xrSyqN2Gk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Feb 2026 20:28:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j4ugqcj0c9"
+        },
+        {
+          "Name": "label",
+          "Value": "asd.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fclr9IYOVt7r9m9seotcQEyD3UwPXDCyD7xrSyqN2Gk="
+        }
+      ]
+    },
+    {
+      "Route": "asd.jpg",
+      "AssetFile": "C:\\Users\\usuario\\OneDrive\\Documentos\\GitHub\\E-Commerce-Algoritmos-BackEnd\\E-Commerce-Algoritmos-BackEnd-seba\\E-commerce\\E-commerce\\wwwroot\\asd.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "121619"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fclr9IYOVt7r9m9seotcQEyD3UwPXDCyD7xrSyqN2Gk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Feb 2026 20:28:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fclr9IYOVt7r9m9seotcQEyD3UwPXDCyD7xrSyqN2Gk="
+        }
+      ]
+    }
+  ]
+}
